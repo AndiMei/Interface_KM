@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface_KM", "Interface_KM\Interface_KM.csproj", "{76DF1CD3-8431-4BF5-B37B-68495848D58B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76DF1CD3-8431-4BF5-B37B-68495848D58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76DF1CD3-8431-4BF5-B37B-68495848D58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76DF1CD3-8431-4BF5-B37B-68495848D58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76DF1CD3-8431-4BF5-B37B-68495848D58B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03BDD9A1-FADF-4ADF-9D4A-42A58B84B7BF}
+	EndGlobalSection
+EndGlobal

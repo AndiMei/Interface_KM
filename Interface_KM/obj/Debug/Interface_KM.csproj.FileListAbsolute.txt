@@ -1,0 +1,10 @@
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\bin\Debug\Interface_KM.exe.config
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\bin\Debug\Interface_KM.exe
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\bin\Debug\Interface_KM.pdb
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.csprojAssemblyReference.cache
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.Form1.resources
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.Properties.Resources.resources
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.csproj.GenerateResource.cache
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.csproj.CoreCompileInputs.cache
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.exe
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.pdb
