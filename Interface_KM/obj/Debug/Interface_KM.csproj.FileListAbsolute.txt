@@ -8,3 +8,6 @@ E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\o
 E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.csproj.CoreCompileInputs.cache
 E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.exe
 E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.pdb
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\bin\Debug\SimpleTCP.dll
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\obj\Debug\Interface_KM.csproj.CopyComplete
+E:\Documents\Kuliah\Semester_6\Kerja_praktik\Project\Interface_KM\Interface_KM\bin\Debug\EasyModbus.dll

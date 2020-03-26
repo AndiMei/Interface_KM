@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel_1 = new System.Windows.Forms.Panel();
-            this.panel_atas = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_q = new System.Windows.Forms.PictureBox();
+            this.btn_p = new System.Windows.Forms.PictureBox();
+            this.btn_pf = new System.Windows.Forms.PictureBox();
+            this.btn_f = new System.Windows.Forms.PictureBox();
+            this.btn_I = new System.Windows.Forms.PictureBox();
+            this.btn_3ph = new System.Windows.Forms.PictureBox();
+            this.btn_1ph = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.str_TR = new System.Windows.Forms.Label();
             this.str_TT = new System.Windows.Forms.Label();
@@ -50,13 +52,14 @@
             this.strR = new System.Windows.Forms.Label();
             this.ukVAR = new System.Windows.Forms.Label();
             this.strUnit = new System.Windows.Forms.Label();
-            this.btn_q = new System.Windows.Forms.PictureBox();
-            this.btn_p = new System.Windows.Forms.PictureBox();
-            this.btn_pf = new System.Windows.Forms.PictureBox();
-            this.btn_f = new System.Windows.Forms.PictureBox();
-            this.btn_I = new System.Windows.Forms.PictureBox();
-            this.btn_3ph = new System.Windows.Forms.PictureBox();
-            this.btn_1ph = new System.Windows.Forms.PictureBox();
+            this.panel_atas = new System.Windows.Forms.Panel();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.NumericUpDown();
+            this.txtHost = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -65,11 +68,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.txtStatus = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_1.SuspendLayout();
-            this.panel_atas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_q)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_p)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pf)).BeginInit();
@@ -77,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_3ph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_1ph)).BeginInit();
+            this.panel_atas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -116,240 +120,6 @@
             this.panel_1.Name = "panel_1";
             this.panel_1.Size = new System.Drawing.Size(435, 300);
             this.panel_1.TabIndex = 0;
-            // 
-            // panel_atas
-            // 
-            this.panel_atas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_atas.BackgroundImage")));
-            this.panel_atas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_atas.Controls.Add(this.radioButton2);
-            this.panel_atas.Controls.Add(this.radioButton1);
-            this.panel_atas.Controls.Add(this.button1);
-            this.panel_atas.Controls.Add(this.label2);
-            this.panel_atas.Controls.Add(this.label1);
-            this.panel_atas.Controls.Add(this.numericUpDown1);
-            this.panel_atas.Controls.Add(this.textBox1);
-            this.panel_atas.Location = new System.Drawing.Point(2, 0);
-            this.panel_atas.Name = "panel_atas";
-            this.panel_atas.Size = new System.Drawing.Size(435, 91);
-            this.panel_atas.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(86, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(86, 51);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(30, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "IP       :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(30, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Node :";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(192, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 50);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Connect";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(118, 40);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 25);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "01";
-            // 
-            // str_TR
-            // 
-            this.str_TR.AutoSize = true;
-            this.str_TR.BackColor = System.Drawing.Color.Transparent;
-            this.str_TR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_TR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_TR.Location = new System.Drawing.Point(166, 172);
-            this.str_TR.Name = "str_TR";
-            this.str_TR.Size = new System.Drawing.Size(19, 16);
-            this.str_TR.TabIndex = 38;
-            this.str_TR.Text = "R";
-            // 
-            // str_TT
-            // 
-            this.str_TT.AutoSize = true;
-            this.str_TT.BackColor = System.Drawing.Color.Transparent;
-            this.str_TT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_TT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_TT.Location = new System.Drawing.Point(166, 156);
-            this.str_TT.Name = "str_TT";
-            this.str_TT.Size = new System.Drawing.Size(18, 16);
-            this.str_TT.TabIndex = 37;
-            this.str_TT.Text = "T";
-            // 
-            // str_SS
-            // 
-            this.str_SS.AutoSize = true;
-            this.str_SS.BackColor = System.Drawing.Color.Transparent;
-            this.str_SS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_SS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_SS.Location = new System.Drawing.Point(166, 105);
-            this.str_SS.Name = "str_SS";
-            this.str_SS.Size = new System.Drawing.Size(18, 16);
-            this.str_SS.TabIndex = 36;
-            this.str_SS.Text = "S";
-            // 
-            // str_ST
-            // 
-            this.str_ST.AutoSize = true;
-            this.str_ST.BackColor = System.Drawing.Color.Transparent;
-            this.str_ST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_ST.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_ST.Location = new System.Drawing.Point(166, 121);
-            this.str_ST.Name = "str_ST";
-            this.str_ST.Size = new System.Drawing.Size(18, 16);
-            this.str_ST.TabIndex = 35;
-            this.str_ST.Text = "T";
-            // 
-            // str_RS
-            // 
-            this.str_RS.AutoSize = true;
-            this.str_RS.BackColor = System.Drawing.Color.Transparent;
-            this.str_RS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_RS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_RS.Location = new System.Drawing.Point(166, 74);
-            this.str_RS.Name = "str_RS";
-            this.str_RS.Size = new System.Drawing.Size(18, 16);
-            this.str_RS.TabIndex = 34;
-            this.str_RS.Text = "S";
-            // 
-            // str_RR
-            // 
-            this.str_RR.AutoSize = true;
-            this.str_RR.BackColor = System.Drawing.Color.Transparent;
-            this.str_RR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.str_RR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.str_RR.Location = new System.Drawing.Point(166, 58);
-            this.str_RR.Name = "str_RR";
-            this.str_RR.Size = new System.Drawing.Size(19, 16);
-            this.str_RR.TabIndex = 33;
-            this.str_RR.Text = "R";
-            // 
-            // strAddr
-            // 
-            this.strAddr.AutoSize = true;
-            this.strAddr.BackColor = System.Drawing.Color.Transparent;
-            this.strAddr.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strAddr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.strAddr.Location = new System.Drawing.Point(59, 47);
-            this.strAddr.Name = "strAddr";
-            this.strAddr.Size = new System.Drawing.Size(62, 16);
-            this.strAddr.TabIndex = 32;
-            this.strAddr.Text = "ADDRESS";
-            // 
-            // strTotal
-            // 
-            this.strTotal.AutoSize = true;
-            this.strTotal.BackColor = System.Drawing.Color.Transparent;
-            this.strTotal.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strTotal.ForeColor = System.Drawing.Color.Lime;
-            this.strTotal.Location = new System.Drawing.Point(92, 209);
-            this.strTotal.Name = "strTotal";
-            this.strTotal.Size = new System.Drawing.Size(129, 43);
-            this.strTotal.TabIndex = 31;
-            this.strTotal.Text = "999,999";
-            // 
-            // strT
-            // 
-            this.strT.AutoSize = true;
-            this.strT.BackColor = System.Drawing.Color.Transparent;
-            this.strT.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.strT.Location = new System.Drawing.Point(190, 155);
-            this.strT.Name = "strT";
-            this.strT.Size = new System.Drawing.Size(77, 37);
-            this.strT.TabIndex = 30;
-            this.strT.Text = "9999";
-            // 
-            // strS
-            // 
-            this.strS.AutoSize = true;
-            this.strS.BackColor = System.Drawing.Color.Transparent;
-            this.strS.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.strS.Location = new System.Drawing.Point(190, 105);
-            this.strS.Name = "strS";
-            this.strS.Size = new System.Drawing.Size(77, 37);
-            this.strS.TabIndex = 29;
-            this.strS.Text = "9999";
-            // 
-            // strR
-            // 
-            this.strR.AutoSize = true;
-            this.strR.BackColor = System.Drawing.Color.Transparent;
-            this.strR.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.strR.Location = new System.Drawing.Point(190, 57);
-            this.strR.Name = "strR";
-            this.strR.Size = new System.Drawing.Size(77, 37);
-            this.strR.TabIndex = 28;
-            this.strR.Text = "9999";
-            // 
-            // ukVAR
-            // 
-            this.ukVAR.AutoSize = true;
-            this.ukVAR.BackColor = System.Drawing.Color.Transparent;
-            this.ukVAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ukVAR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ukVAR.Location = new System.Drawing.Point(229, 230);
-            this.ukVAR.Name = "ukVAR";
-            this.ukVAR.Size = new System.Drawing.Size(38, 16);
-            this.ukVAR.TabIndex = 27;
-            this.ukVAR.Text = "kWh";
-            // 
-            // strUnit
-            // 
-            this.strUnit.AutoSize = true;
-            this.strUnit.BackColor = System.Drawing.Color.Transparent;
-            this.strUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.strUnit.Location = new System.Drawing.Point(265, 50);
-            this.strUnit.Name = "strUnit";
-            this.strUnit.Size = new System.Drawing.Size(24, 24);
-            this.strUnit.TabIndex = 26;
-            this.strUnit.Text = "A";
             // 
             // btn_q
             // 
@@ -434,6 +204,271 @@
             this.btn_1ph.TabIndex = 40;
             this.btn_1ph.TabStop = false;
             this.btn_1ph.Click += new System.EventHandler(this.btn_1ph_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(57, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 25);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "01";
+            // 
+            // str_TR
+            // 
+            this.str_TR.AutoSize = true;
+            this.str_TR.BackColor = System.Drawing.Color.Transparent;
+            this.str_TR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_TR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_TR.Location = new System.Drawing.Point(135, 172);
+            this.str_TR.Name = "str_TR";
+            this.str_TR.Size = new System.Drawing.Size(19, 16);
+            this.str_TR.TabIndex = 38;
+            this.str_TR.Text = "R";
+            // 
+            // str_TT
+            // 
+            this.str_TT.AutoSize = true;
+            this.str_TT.BackColor = System.Drawing.Color.Transparent;
+            this.str_TT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_TT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_TT.Location = new System.Drawing.Point(135, 156);
+            this.str_TT.Name = "str_TT";
+            this.str_TT.Size = new System.Drawing.Size(18, 16);
+            this.str_TT.TabIndex = 37;
+            this.str_TT.Text = "T";
+            // 
+            // str_SS
+            // 
+            this.str_SS.AutoSize = true;
+            this.str_SS.BackColor = System.Drawing.Color.Transparent;
+            this.str_SS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_SS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_SS.Location = new System.Drawing.Point(135, 105);
+            this.str_SS.Name = "str_SS";
+            this.str_SS.Size = new System.Drawing.Size(18, 16);
+            this.str_SS.TabIndex = 36;
+            this.str_SS.Text = "S";
+            // 
+            // str_ST
+            // 
+            this.str_ST.AutoSize = true;
+            this.str_ST.BackColor = System.Drawing.Color.Transparent;
+            this.str_ST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_ST.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_ST.Location = new System.Drawing.Point(135, 121);
+            this.str_ST.Name = "str_ST";
+            this.str_ST.Size = new System.Drawing.Size(18, 16);
+            this.str_ST.TabIndex = 35;
+            this.str_ST.Text = "T";
+            // 
+            // str_RS
+            // 
+            this.str_RS.AutoSize = true;
+            this.str_RS.BackColor = System.Drawing.Color.Transparent;
+            this.str_RS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_RS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_RS.Location = new System.Drawing.Point(135, 74);
+            this.str_RS.Name = "str_RS";
+            this.str_RS.Size = new System.Drawing.Size(18, 16);
+            this.str_RS.TabIndex = 34;
+            this.str_RS.Text = "S";
+            // 
+            // str_RR
+            // 
+            this.str_RR.AutoSize = true;
+            this.str_RR.BackColor = System.Drawing.Color.Transparent;
+            this.str_RR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.str_RR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.str_RR.Location = new System.Drawing.Point(135, 58);
+            this.str_RR.Name = "str_RR";
+            this.str_RR.Size = new System.Drawing.Size(19, 16);
+            this.str_RR.TabIndex = 33;
+            this.str_RR.Text = "R";
+            // 
+            // strAddr
+            // 
+            this.strAddr.AutoSize = true;
+            this.strAddr.BackColor = System.Drawing.Color.Transparent;
+            this.strAddr.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strAddr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strAddr.Location = new System.Drawing.Point(59, 47);
+            this.strAddr.Name = "strAddr";
+            this.strAddr.Size = new System.Drawing.Size(62, 16);
+            this.strAddr.TabIndex = 32;
+            this.strAddr.Text = "ADDRESS";
+            // 
+            // strTotal
+            // 
+            this.strTotal.AutoSize = true;
+            this.strTotal.BackColor = System.Drawing.Color.Transparent;
+            this.strTotal.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strTotal.ForeColor = System.Drawing.Color.Lime;
+            this.strTotal.Location = new System.Drawing.Point(92, 209);
+            this.strTotal.Name = "strTotal";
+            this.strTotal.Size = new System.Drawing.Size(129, 43);
+            this.strTotal.TabIndex = 31;
+            this.strTotal.Text = "999,999";
+            // 
+            // strT
+            // 
+            this.strT.AutoSize = true;
+            this.strT.BackColor = System.Drawing.Color.Transparent;
+            this.strT.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strT.Location = new System.Drawing.Point(159, 155);
+            this.strT.Name = "strT";
+            this.strT.Size = new System.Drawing.Size(77, 37);
+            this.strT.TabIndex = 30;
+            this.strT.Text = "9999";
+            // 
+            // strS
+            // 
+            this.strS.AutoSize = true;
+            this.strS.BackColor = System.Drawing.Color.Transparent;
+            this.strS.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strS.Location = new System.Drawing.Point(159, 105);
+            this.strS.Name = "strS";
+            this.strS.Size = new System.Drawing.Size(77, 37);
+            this.strS.TabIndex = 29;
+            this.strS.Text = "9999";
+            // 
+            // strR
+            // 
+            this.strR.AutoSize = true;
+            this.strR.BackColor = System.Drawing.Color.Transparent;
+            this.strR.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strR.Location = new System.Drawing.Point(159, 57);
+            this.strR.Name = "strR";
+            this.strR.Size = new System.Drawing.Size(77, 37);
+            this.strR.TabIndex = 28;
+            this.strR.Text = "9999";
+            // 
+            // ukVAR
+            // 
+            this.ukVAR.AutoSize = true;
+            this.ukVAR.BackColor = System.Drawing.Color.Transparent;
+            this.ukVAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ukVAR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ukVAR.Location = new System.Drawing.Point(229, 230);
+            this.ukVAR.Name = "ukVAR";
+            this.ukVAR.Size = new System.Drawing.Size(38, 16);
+            this.ukVAR.TabIndex = 27;
+            this.ukVAR.Text = "kWh";
+            // 
+            // strUnit
+            // 
+            this.strUnit.AutoSize = true;
+            this.strUnit.BackColor = System.Drawing.Color.Transparent;
+            this.strUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strUnit.Location = new System.Drawing.Point(265, 50);
+            this.strUnit.Name = "strUnit";
+            this.strUnit.Size = new System.Drawing.Size(24, 24);
+            this.strUnit.TabIndex = 26;
+            this.strUnit.Text = "A";
+            // 
+            // panel_atas
+            // 
+            this.panel_atas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_atas.BackgroundImage")));
+            this.panel_atas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_atas.Controls.Add(this.radioButton2);
+            this.panel_atas.Controls.Add(this.radioButton1);
+            this.panel_atas.Controls.Add(this.button1);
+            this.panel_atas.Controls.Add(this.label2);
+            this.panel_atas.Controls.Add(this.label1);
+            this.panel_atas.Controls.Add(this.txtPort);
+            this.panel_atas.Controls.Add(this.txtHost);
+            this.panel_atas.Location = new System.Drawing.Point(2, 0);
+            this.panel_atas.Name = "panel_atas";
+            this.panel_atas.Size = new System.Drawing.Size(435, 91);
+            this.panel_atas.TabIndex = 1;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.ForeColor = System.Drawing.SystemColors.Control;
+            this.radioButton2.Location = new System.Drawing.Point(308, 46);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(64, 22);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Graph";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.Control;
+            this.radioButton1.Location = new System.Drawing.Point(308, 25);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 22);
+            this.radioButton1.TabIndex = 7;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Biasa";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(192, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 50);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Disconnect";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(30, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Node :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(30, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "IP       :";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(86, 51);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(100, 20);
+            this.txtPort.TabIndex = 3;
+            // 
+            // txtHost
+            // 
+            this.txtHost.Location = new System.Drawing.Point(86, 25);
+            this.txtHost.Name = "txtHost";
+            this.txtHost.Size = new System.Drawing.Size(100, 20);
+            this.txtHost.TabIndex = 2;
+            this.txtHost.Text = "192.168.2.254";
             // 
             // pictureBox7
             // 
@@ -528,41 +563,33 @@
             this.panel_2.Size = new System.Drawing.Size(435, 300);
             this.panel_2.TabIndex = 47;
             // 
-            // radioButton1
+            // txtStatus
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.radioButton1.Location = new System.Drawing.Point(308, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 22);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Biasa";
-            this.radioButton1.UseVisualStyleBackColor = false;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.txtStatus.FormattingEnabled = true;
+            this.txtStatus.Location = new System.Drawing.Point(462, 13);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(418, 56);
+            this.txtStatus.TabIndex = 48;
             // 
-            // radioButton2
+            // textBox1
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.Control;
-            this.radioButton2.Location = new System.Drawing.Point(308, 46);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(64, 22);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Graph";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.textBox1.Location = new System.Drawing.Point(462, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 9;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 394);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.panel_1);
             this.Controls.Add(this.panel_atas);
             this.Controls.Add(this.panel_2);
@@ -571,9 +598,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_1.ResumeLayout(false);
             this.panel_1.PerformLayout();
-            this.panel_atas.ResumeLayout(false);
-            this.panel_atas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_q)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_p)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_pf)).EndInit();
@@ -581,6 +605,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_3ph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_1ph)).EndInit();
+            this.panel_atas.ResumeLayout(false);
+            this.panel_atas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -590,6 +617,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -597,8 +625,8 @@
 
         private System.Windows.Forms.Panel panel_1;
         private System.Windows.Forms.Panel panel_atas;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown txtPort;
+        private System.Windows.Forms.TextBox txtHost;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
@@ -633,6 +661,9 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ListBox txtStatus;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

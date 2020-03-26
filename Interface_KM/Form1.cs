@@ -7,14 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using SimpleTCP.Server;
+using SimpleTCP;
+using EasyModbus;
+using System.Threading;
 
 namespace Interface_KM
 {
     public partial class Form1 : Form
     {
-        List<Panel> listpanel = new List<Panel>();
-        int index;
-        int count;
+        private const int READ_BUFFER_SIZE = 2048; //2kB
+        private const int WRITE_BUFFER_SIZE = 2048; //2kB
+        private byte[] bufferReceiver = null;
+        private byte[] bufferSender = null;
+        private Socket mSocket = null;
+        private const string IP = "192.168.2.254";
+        private const ushort Port = 502;
+
+        /*-----------------------------------------------------*/
+        bool btnState;
+        bool ambilData;
+        bool satuKali;
+        string dataApa;
+        byte[] MbusQuery = new byte[12];
+
         public Form1()
         {
             InitializeComponent();
@@ -22,12 +40,164 @@ namespace Interface_KM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            button1.Text = "Connect";
+        }
 
-           // listpanel[index].BringToFront();
+        public void connect()
+        {
+            this.mSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            this.bufferReceiver = new byte[READ_BUFFER_SIZE];
+            this.bufferSender = new byte[WRITE_BUFFER_SIZE];
+            this.mSocket.SendBufferSize = READ_BUFFER_SIZE;
+            this.mSocket.ReceiveBufferSize = WRITE_BUFFER_SIZE;
+            IPEndPoint server = new IPEndPoint(IPAddress.Parse(IP), Port);
+            this.mSocket.Connect(server);
+        }
+
+        private int write(byte[] frame)
+        {
+            return (this.mSocket.Send(frame, frame.Length, SocketFlags.None));
+        }
+
+        private byte[] read()
+        {
+            byte[] result = new byte[READ_BUFFER_SIZE];
+            NetworkStream netStream = new NetworkStream(this.mSocket);
+            if (netStream.CanRead)
+            {
+                this.mSocket.Receive(result, result.Length, SocketFlags.None);
+            }
+            return result;
+        }
+
+        private int[] read_HoldingRegisters(ushort id, byte slaveAddress, ushort startAddress, byte functionCode, ushort numberOfPoint)
+        {
+            var frame = new byte[12]; // Total 12 Bytes
+            frame[0] = Convert.ToByte(id / (double)256); // Transaction Identifier High
+            frame[1] = Convert.ToByte(id % 256); // Transaction Identifier Low
+            frame[2] = 0; // Protocol Identifier High
+            frame[3] = 0; // Protocol Identifier Low
+            frame[4] = 0; // Message Length High.
+            frame[5] = 6; // Message Length Low(6 bytes to follow)
+            frame[6] = slaveAddress; // The Unit Identifier(slave Address/Slave Id).
+            frame[7] = functionCode; // Function.
+            frame[8] = Convert.ToByte(startAddress / (double)256); // Starting Address High.
+            frame[9] = Convert.ToByte(startAddress % 256); // Starting Address Low.
+            frame[10] = Convert.ToByte(numberOfPoint / (double)256); // Quantity of Registers High
+            frame[11] = Convert.ToByte(numberOfPoint % 256); // Quantity of Registers Low
+
+            this.write(frame);  //Send message to device.
+            Thread.Sleep(100);  //Delay 100ms.
+           // Console.WriteLine(String.Concat(frame));
+
+            /*  Receive data    */
+            byte[] buffRX = this.read();
+            int sizeByte = buffRX[8];
+            byte[] byteData = new byte[sizeByte];
+            int[] temp = new int[(byteData.Length / 2)];
+            Console.WriteLine(buffRX[7]);
+            if (functionCode == buffRX[7])
+            {
+                Array.Copy(buffRX, 9, byteData, 0, byteData.Length);
+
+                /* Convert byte[] to ushort[] */
+                int j = 0;
+                for (int i = 1; i < byteData.Length; i += 2)
+                {
+                    temp[j] = ((byteData[i - 1] << 8) | byteData[i]);
+                    j++;
+                }
+            }
+            return temp;
+            Console.WriteLine(String.Concat(temp));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            btnState = !(btnState);
+            if (btnState)
+            {
+                try
+                {
+                    button1.Text = "Disconnect";
+                    connect(); // connect to device.
+                    timer1.Start();
+                    ambilData = true;
+                }
+
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message);
+                    btnState = false;
+                    button1.Text = "Connect";
+                }
+            }
+
+            else
+            {
+                button1.Text = "Connect";
+                ambilData = false;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ambilData)
+                GetData();
+        }
+
+        private void GetData()
+        {
+            byte slaveAddress = 2;
+            byte functionCode = 3;
+            ushort id = functionCode;
+            ushort startAddress = 0;
+            ushort numberofPoints = 26;
+
+            int[] readHoldRegisters = read_HoldingRegisters(id, slaveAddress, startAddress, functionCode, numberofPoints);
+
+            Console.WriteLine(String.Concat(readHoldRegisters));
+            switch (dataApa)
+            {
+                case "voltage_1ph":
+                    strR.Text = (readHoldRegisters[1] * 0.1).ToString();
+                    strS.Text = (readHoldRegisters[3] * 0.1).ToString();
+                    strT.Text = (readHoldRegisters[5] * 0.1).ToString();
+                    break;
+
+                case "current":
+                    strR.Text = (readHoldRegisters[7] * 0.001).ToString();
+                    strS.Text = (readHoldRegisters[9] * 0.001).ToString();
+                    strT.Text = (readHoldRegisters[11] * 0.001).ToString();
+                    break;
+
+                case "powerFactor":
+                    strR.Text = (readHoldRegisters[13] * 0.01).ToString();
+                    break;
+
+                case "frequency":
+                    strR.Text = (readHoldRegisters[15] * 0.1).ToString();
+                    break;
+
+                case "power":
+                    strR.Text = (readHoldRegisters[17] * 0.1).ToString();
+                    break;
+
+                case "reactivePower":
+                    strR.Text = (readHoldRegisters[19] * 0.1).ToString();
+                    break;
+
+                case "voltage_3ph":
+                    strR.Text = (readHoldRegisters[21] * 0.1).ToString();
+                    strS.Text = (readHoldRegisters[23] * 0.1).ToString();
+                    strT.Text = (readHoldRegisters[25] * 0.1).ToString();
+                    break;
+            }
         }
 
         private void btn_I_Click(object sender, EventArgs e)
         {
+            dataApa = "current";
             strUnit.Text = "A";
 
             str_RR.Visible = true;
@@ -45,6 +215,7 @@ namespace Interface_KM
 
         private void btn_1ph_Click(object sender, EventArgs e)
         {
+            dataApa = "voltage_1ph";
             strUnit.Text = "V";
 
             str_RR.Visible = true;
@@ -62,6 +233,7 @@ namespace Interface_KM
 
         private void btn_3ph_Click(object sender, EventArgs e)
         {
+            dataApa = "voltage_3ph";
             strUnit.Text = "V";
 
             str_RR.Visible = true;
@@ -79,6 +251,7 @@ namespace Interface_KM
 
         private void btn_f_Click(object sender, EventArgs e)
         {
+            dataApa = "frequency";
             strUnit.Text = "Hz";
 
             str_RR.Visible = false;
@@ -97,6 +270,7 @@ namespace Interface_KM
 
         private void btn_pf_Click(object sender, EventArgs e)
         {
+            dataApa = "powerFactor";
             strUnit.Text = "PF";
 
             str_RR.Visible = false;
@@ -115,6 +289,7 @@ namespace Interface_KM
 
         private void btn_p_Click(object sender, EventArgs e)
         {
+            dataApa = "power";
             strUnit.Text = "kW";
 
             str_RR.Visible = false;
@@ -133,8 +308,9 @@ namespace Interface_KM
 
         private void btn_q_Click(object sender, EventArgs e)
         {
+            dataApa = "reactivePower";
             strUnit.Text = "kvar";
-
+            
             str_RR.Visible = false;
             str_SS.Visible = false;
             str_TT.Visible = false;
@@ -148,25 +324,13 @@ namespace Interface_KM
             strS.Visible = false;
             strT.Visible = false;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            //  panel_2.SendToBack();
-            // panel_2.Visible = false;
-            // this.panel_1.BringToFront();
-        }
-
+        
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true)
             {
                 panel_1.Show();
                 panel_2.Hide();
-                //listpanel[0].BringToFront();
-                //panel_1.BringToFront();
-               // panel_1.Visible = true;
-                //panel_2.Visible = false;
             }
                 
         }
@@ -177,13 +341,11 @@ namespace Interface_KM
             {
                 panel_1.Hide();
                 panel_2.Show();
-                //listpanel[1].BringToFront();
-                //panel_1.Visible = false;
-                //panel_2.Visible = true;
-               // panel_2.BringToFront();
-               // panel_1.SendToBack();
             }
-            // panel_2.BringToFront();
         }
+
+        
+
+        
     }
 }
