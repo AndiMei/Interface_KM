@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using SimpleTCP.Server;
-using SimpleTCP;
-using EasyModbus;
 using System.Threading;
 
 namespace Interface_KM
@@ -46,7 +43,6 @@ namespace Interface_KM
         {
             button1.Text = "Connect";
             dataApa = "current";
-            dataApa2 = "total_kWh";
             strUnit.Text = "A";
             str_RR.Visible = true;
             str_SS.Visible = true;
@@ -223,29 +219,26 @@ namespace Interface_KM
 
                     case "power":
                         strR.Text = Ptot.ToString("#,##0.000");
-                        dataApa2 = "total_kWh";
+                        strTotal.Text =kWhtot.ToString("#,#0.0");
+                        strUnit2.Text = "kWh";
                         break;
 
                     case "reactivePower":
                         strR.Text = Qtot.ToString("#,##0.000");
-                        dataApa2 = "total_kVARh";
+                        strTotal.Text = KVARtot.ToString("#,#0.0");
+                        strUnit2.Text = "kVARh";
                         break;
 
                     case "voltage_3ph":
                         strR.Text = (readHoldRegisters[21] * 0.1).ToString("#,##0.0");
+                        strS.Text = (readHoldRegisters[23] * 0.1).ToString("#,##0.0");
+                        strT.Text = (readHoldRegisters[25] * 0.1).ToString("#,##0.0");
                         break;
                 }
 
                 switch(dataApa2)
                 {
                     case "total_kWh":
-                        strTotal.Text = kWhtot.ToString("#,#0.0");
-                        strUnit2.Text = "kWh";
-                        break;
-
-                    case "total_kVARh":
-
-                        strUnit2.Text = "kVARh";
                         break;
 
                 }
