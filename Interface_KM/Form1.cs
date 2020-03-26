@@ -26,7 +26,16 @@ namespace Interface_KM
         
         bool btnState;
         bool ambilData;
-        string dataApa;
+        string dataApa, dataApa2;
+
+        /* Global variable data */
+        double vR, vS, vT;
+        double vRS, vST, vTR;
+        double cR, cS, cT;
+        double freq;
+        double PF;
+        double Ptot, Qtot;
+        double kWhtot, KVARtot;
 
         public Form1()
         {
@@ -126,6 +135,7 @@ namespace Interface_KM
                     button1.Text = "Disconnect";
                     connect(txtHost.Text, 502); // connect to device.
                     timer1.Start();
+                    txtAddr.Text = txtSlave.Value.ToString("00");
                     ambilData = true;
                     txtSlave.Enabled = false;
                     txtHost.Enabled = false;
@@ -163,54 +173,77 @@ namespace Interface_KM
             try
             {
                 byte slaveAddress = (byte)txtSlave.Value;
-                byte functionCode = 3;
+                byte functionCode = 3;  //3 = holding register.
                 ushort id = functionCode;
-                ushort startAddress = 0;
-                ushort numberofPoints = 38;
 
-                int[] readHoldRegisters = read_HoldingRegisters(id, slaveAddress, startAddress, functionCode, numberofPoints);
-                int[] readHoldRegistersTotalizer = read_HoldingRegisters(id, slaveAddress, 608, functionCode, 5);
+                /* read holding register to buffer */
+                int[] readHoldRegisters = read_HoldingRegisters(id, slaveAddress, 0, functionCode, 27);
+                int[] readHoldRegistersTotalizer = read_HoldingRegisters(id, slaveAddress, 608, functionCode, 11);
 
-                textBox1.Text = null;
-                textBox1.Text = readHoldRegistersTotalizer[0].ToString() + "|" + readHoldRegistersTotalizer[1].ToString();
+                /* Copy buffer to variable */
+                vR = (readHoldRegisters[1] * 0.1);
+                vS = (readHoldRegisters[3] * 0.1);
+                vT = (readHoldRegisters[5] * 0.1);
+                vRS = (readHoldRegisters[21] * 0.1);
+                vST = (readHoldRegisters[23] * 0.1);
+                vTR = (readHoldRegisters[25] * 0.1);
+                cR = (readHoldRegisters[7] * 0.001);
+                cS = (readHoldRegisters[9] * 0.001);
+                cT = (readHoldRegisters[11] * 0.001);
+                PF = (readHoldRegisters[13] * 0.01);
+                freq = (readHoldRegisters[15] * 0.1);
+                Ptot = (((readHoldRegisters[16] << 16) + readHoldRegisters[17]) * 0.0001);
+                Qtot = (((readHoldRegisters[18] << 16) + readHoldRegisters[19]) * 0.0001);
+                kWhtot = (((readHoldRegistersTotalizer[0] << 16) + readHoldRegistersTotalizer[1]));
+                KVARtot = (((readHoldRegistersTotalizer[8] << 16) + readHoldRegistersTotalizer[9]));
 
-
+                /* Show data */
                 switch (dataApa)
                 {
                     case "voltage_1ph":
-                        strR.Text = (readHoldRegisters[1] * 0.1).ToString();
-                        strS.Text = (readHoldRegisters[3] * 0.1).ToString();
-                        strT.Text = (readHoldRegisters[5] * 0.1).ToString();
+                        strR.Text = vR.ToString("#,##0.0");
+                        strS.Text = vS.ToString("#,##0.0");
+                        strT.Text = vT.ToString("#,##0.0");
                         break;
 
                     case "current":
-                        strR.Text = (readHoldRegisters[7] * 0.001).ToString();
-                        strS.Text = (readHoldRegisters[9] * 0.001).ToString();
-                        strT.Text = (readHoldRegisters[11] * 0.001).ToString();
+                        strR.Text = cR.ToString("#,##0.00");
+                        strS.Text = cS.ToString("#,##0.00");
+                        strT.Text = cT.ToString("#,##0.00");
                         break;
 
                     case "powerFactor":
-                        strR.Text = (readHoldRegisters[13] * 0.01).ToString();
+                        strR.Text = PF.ToString("#,##0.00");
                         break;
 
                     case "frequency":
-                        strR.Text = (readHoldRegisters[15] * 0.1).ToString();
+                        strR.Text = freq.ToString("#,##0.00");
                         break;
 
                     case "power":
-                        strR.Text = (readHoldRegisters[17] * 0.1).ToString();
-                        strTotal.Text = (readHoldRegisters[1].ToString());
+                        strR.Text = Ptot.ToString("#,##0.000");
+                        strTotal.Text =kWhtot.ToString("#,#0.0");
+                        strUnit2.Text = "kWh";
                         break;
 
                     case "reactivePower":
-                        strR.Text = (readHoldRegisters[19] * 0.1).ToString();
+                        strR.Text = Qtot.ToString("#,##0.000");
+                        strTotal.Text = KVARtot.ToString("#,#0.0");
+                        strUnit2.Text = "kVARh";
                         break;
 
                     case "voltage_3ph":
-                        strR.Text = (readHoldRegisters[21] * 0.1).ToString();
-                        strS.Text = (readHoldRegisters[23] * 0.1).ToString();
-                        strT.Text = (readHoldRegisters[25] * 0.1).ToString();
+                        strR.Text = (readHoldRegisters[21] * 0.1).ToString("#,##0.0");
+                        strS.Text = (readHoldRegisters[23] * 0.1).ToString("#,##0.0");
+                        strT.Text = (readHoldRegisters[25] * 0.1).ToString("#,##0.0");
                         break;
+                }
+
+                switch(dataApa2)
+                {
+                    case "total_kWh":
+                        break;
+
                 }
             }
             catch(Exception ex)

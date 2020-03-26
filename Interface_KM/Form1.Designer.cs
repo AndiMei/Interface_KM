@@ -38,7 +38,7 @@
             this.btn_I = new System.Windows.Forms.PictureBox();
             this.btn_3ph = new System.Windows.Forms.PictureBox();
             this.btn_1ph = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtAddr = new System.Windows.Forms.Label();
             this.str_TR = new System.Windows.Forms.Label();
             this.str_TT = new System.Windows.Forms.Label();
             this.str_SS = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.strT = new System.Windows.Forms.Label();
             this.strS = new System.Windows.Forms.Label();
             this.strR = new System.Windows.Forms.Label();
-            this.ukVAR = new System.Windows.Forms.Label();
+            this.strUnit2 = new System.Windows.Forms.Label();
             this.strUnit = new System.Windows.Forms.Label();
             this.panel_atas = new System.Windows.Forms.Panel();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -68,8 +68,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
-            this.txtStatus = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_q)).BeginInit();
@@ -102,7 +100,7 @@
             this.panel_1.Controls.Add(this.btn_I);
             this.panel_1.Controls.Add(this.btn_3ph);
             this.panel_1.Controls.Add(this.btn_1ph);
-            this.panel_1.Controls.Add(this.label7);
+            this.panel_1.Controls.Add(this.txtAddr);
             this.panel_1.Controls.Add(this.str_TR);
             this.panel_1.Controls.Add(this.str_TT);
             this.panel_1.Controls.Add(this.str_SS);
@@ -114,7 +112,7 @@
             this.panel_1.Controls.Add(this.strT);
             this.panel_1.Controls.Add(this.strS);
             this.panel_1.Controls.Add(this.strR);
-            this.panel_1.Controls.Add(this.ukVAR);
+            this.panel_1.Controls.Add(this.strUnit2);
             this.panel_1.Controls.Add(this.strUnit);
             this.panel_1.Location = new System.Drawing.Point(2, 91);
             this.panel_1.Name = "panel_1";
@@ -205,17 +203,17 @@
             this.btn_1ph.TabStop = false;
             this.btn_1ph.Click += new System.EventHandler(this.btn_1ph_Click);
             // 
-            // label7
+            // txtAddr
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(57, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 25);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "01";
+            this.txtAddr.AutoSize = true;
+            this.txtAddr.BackColor = System.Drawing.Color.Transparent;
+            this.txtAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAddr.Location = new System.Drawing.Point(57, 63);
+            this.txtAddr.Name = "txtAddr";
+            this.txtAddr.Size = new System.Drawing.Size(38, 25);
+            this.txtAddr.TabIndex = 39;
+            this.txtAddr.Text = "01";
             // 
             // str_TR
             // 
@@ -307,11 +305,11 @@
             this.strTotal.BackColor = System.Drawing.Color.Transparent;
             this.strTotal.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strTotal.ForeColor = System.Drawing.Color.Lime;
-            this.strTotal.Location = new System.Drawing.Point(92, 209);
+            this.strTotal.Location = new System.Drawing.Point(82, 207);
             this.strTotal.Name = "strTotal";
-            this.strTotal.Size = new System.Drawing.Size(129, 43);
+            this.strTotal.Size = new System.Drawing.Size(154, 43);
             this.strTotal.TabIndex = 31;
-            this.strTotal.Text = "999,999";
+            this.strTotal.Text = "999.999,0";
             // 
             // strT
             // 
@@ -349,17 +347,17 @@
             this.strR.TabIndex = 28;
             this.strR.Text = "9999";
             // 
-            // ukVAR
+            // strUnit2
             // 
-            this.ukVAR.AutoSize = true;
-            this.ukVAR.BackColor = System.Drawing.Color.Transparent;
-            this.ukVAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ukVAR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ukVAR.Location = new System.Drawing.Point(229, 230);
-            this.ukVAR.Name = "ukVAR";
-            this.ukVAR.Size = new System.Drawing.Size(38, 16);
-            this.ukVAR.TabIndex = 27;
-            this.ukVAR.Text = "kWh";
+            this.strUnit2.AutoSize = true;
+            this.strUnit2.BackColor = System.Drawing.Color.Transparent;
+            this.strUnit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strUnit2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strUnit2.Location = new System.Drawing.Point(251, 207);
+            this.strUnit2.Name = "strUnit2";
+            this.strUnit2.Size = new System.Drawing.Size(38, 16);
+            this.strUnit2.TabIndex = 27;
+            this.strUnit2.Text = "kWh";
             // 
             // strUnit
             // 
@@ -458,9 +456,24 @@
             // txtSlave
             // 
             this.txtSlave.Location = new System.Drawing.Point(86, 51);
+            this.txtSlave.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.txtSlave.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtSlave.Name = "txtSlave";
             this.txtSlave.Size = new System.Drawing.Size(100, 20);
             this.txtSlave.TabIndex = 3;
+            this.txtSlave.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtHost
             // 
@@ -563,21 +576,6 @@
             this.panel_2.Size = new System.Drawing.Size(435, 300);
             this.panel_2.TabIndex = 47;
             // 
-            // txtStatus
-            // 
-            this.txtStatus.FormattingEnabled = true;
-            this.txtStatus.Location = new System.Drawing.Point(462, 13);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(418, 56);
-            this.txtStatus.TabIndex = 48;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(462, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 9;
-            // 
             // timer1
             // 
             this.timer1.Interval = 50;
@@ -588,8 +586,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 394);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.panel_1);
             this.Controls.Add(this.panel_atas);
             this.Controls.Add(this.panel_2);
@@ -617,7 +613,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -629,7 +624,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label txtAddr;
         private System.Windows.Forms.Label str_TR;
         private System.Windows.Forms.Label str_TT;
         private System.Windows.Forms.Label str_SS;
@@ -641,7 +636,7 @@
         private System.Windows.Forms.Label strT;
         private System.Windows.Forms.Label strS;
         private System.Windows.Forms.Label strR;
-        private System.Windows.Forms.Label ukVAR;
+        private System.Windows.Forms.Label strUnit2;
         private System.Windows.Forms.Label strUnit;
         private System.Windows.Forms.PictureBox btn_q;
         private System.Windows.Forms.PictureBox btn_p;
@@ -660,8 +655,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ListBox txtStatus;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox txtHost;
     }
