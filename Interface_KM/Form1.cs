@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-using SimpleTCP.Server;
-using SimpleTCP;
-using EasyModbus;
 using System.Threading;
 
 namespace Interface_KM
