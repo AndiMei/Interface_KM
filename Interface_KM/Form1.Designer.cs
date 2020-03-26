@@ -58,7 +58,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPort = new System.Windows.Forms.NumericUpDown();
+            this.txtSlave = new System.Windows.Forms.NumericUpDown();
             this.txtHost = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -80,7 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_3ph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_1ph)).BeginInit();
             this.panel_atas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSlave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -382,7 +382,7 @@
             this.panel_atas.Controls.Add(this.button1);
             this.panel_atas.Controls.Add(this.label2);
             this.panel_atas.Controls.Add(this.label1);
-            this.panel_atas.Controls.Add(this.txtPort);
+            this.panel_atas.Controls.Add(this.txtSlave);
             this.panel_atas.Controls.Add(this.txtHost);
             this.panel_atas.Location = new System.Drawing.Point(2, 0);
             this.panel_atas.Name = "panel_atas";
@@ -455,12 +455,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "IP       :";
             // 
-            // txtPort
+            // txtSlave
             // 
-            this.txtPort.Location = new System.Drawing.Point(86, 51);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(100, 20);
-            this.txtPort.TabIndex = 3;
+            this.txtSlave.Location = new System.Drawing.Point(86, 51);
+            this.txtSlave.Name = "txtSlave";
+            this.txtSlave.Size = new System.Drawing.Size(100, 20);
+            this.txtSlave.TabIndex = 3;
             // 
             // txtHost
             // 
@@ -607,7 +607,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_1ph)).EndInit();
             this.panel_atas.ResumeLayout(false);
             this.panel_atas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSlave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -625,8 +625,7 @@
 
         private System.Windows.Forms.Panel panel_1;
         private System.Windows.Forms.Panel panel_atas;
-        private System.Windows.Forms.NumericUpDown txtPort;
-        private System.Windows.Forms.TextBox txtHost;
+        private System.Windows.Forms.NumericUpDown txtSlave;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
@@ -664,6 +663,7 @@
         private System.Windows.Forms.ListBox txtStatus;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtHost;
     }
 }
 
