@@ -244,7 +244,7 @@ namespace Interface_KM
                         break;
 
                     case "total_kVARh":
-                        strTotal.Text = KVARtot.ToString("#,#0.0");
+
                         strUnit2.Text = "kVARh";
                         break;
 
