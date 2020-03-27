@@ -742,6 +742,7 @@ namespace Interface_KM
                 panel_1.Show();
                 panel_2.Show();
                 panel_3.Hide();
+                /*Andi*/
             }
         }
 
