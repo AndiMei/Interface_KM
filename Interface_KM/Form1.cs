@@ -16,6 +16,7 @@ namespace Interface_KM
 {
     public partial class Form1 : Form
     {
+        string Clock;
         private const int READ_BUFFER_SIZE = 2048; //2kB
         private const int WRITE_BUFFER_SIZE = 2048; //2kB
         private byte[] bufferReceiver = null;
@@ -180,6 +181,7 @@ namespace Interface_KM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            calculate();
             if (ambilData)
                 GetData();
         }
@@ -742,11 +744,35 @@ namespace Interface_KM
                 panel_1.Show();
                 panel_2.Show();
                 panel_3.Hide();
-                /*Andi*/
             }
         }
 
-        
+        private void calculate()
+        {
+            double a = Convert.ToDouble(Clock);
+            double b = Convert.ToDouble(TimeAwal_LWBP.Text);
+            double c = Convert.ToDouble(TimeAkhir_LWBP.Text);
+            double ConvCC_LWBP = Convert.ToDouble(CC_LWBP.Text);
+            double ConvRp_LWBP = Convert.ToDouble(Rp_LWBP.Text);
+            double ConvCC_WBP = Convert.ToDouble(CC_WBP.Text);
+            double ConvRp_WBP = Convert.ToDouble(Rp_WBP.Text);
+            if (a <= c && a >= b)
+            {
+                CC_LWBP.Text = kWhtot.ToString("#,##0.0");
+
+            }
+            else CC_WBP.Text = kWhtot.ToString("#,##0.0");
+
+            double lwbpTot = ConvRp_LWBP * ConvCC_LWBP;
+            LWBP_Duwek.Text = lwbpTot.ToString("#,##0");
+            double wbpTot = ConvRp_WBP * ConvCC_WBP;
+            WBP_Duwek.Text = wbpTot.ToString("#,##0");
+
+            double duwektotal = lwbpTot + wbpTot;
+            Total_Duwek.Text = Convert.ToString(duwektotal);
+        }
+        /* wekke apsa */
+
 
         
     }
