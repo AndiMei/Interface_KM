@@ -24,6 +24,7 @@ namespace Interface_KM
         bool btnState;
         bool ambilData;
         string dataApa, dataApa2;
+        int time;
 
         /* Global variable data */
         double vR, vS, vT;
@@ -201,6 +202,7 @@ namespace Interface_KM
                         strR.Text = vR.ToString("#,##0.0");
                         strS.Text = vS.ToString("#,##0.0");
                         strT.Text = vT.ToString("#,##0.0");
+                        showChart(1, vR, vS, vT);
                         break;
 
                     case "current":
@@ -230,18 +232,28 @@ namespace Interface_KM
                         break;
 
                     case "voltage_3ph":
-                        strR.Text = (readHoldRegisters[21] * 0.1).ToString("#,##0.0");
-                        strS.Text = (readHoldRegisters[23] * 0.1).ToString("#,##0.0");
-                        strT.Text = (readHoldRegisters[25] * 0.1).ToString("#,##0.0");
+                        strR.Text = vRS.ToString("#,##0.0");
+                        strS.Text = vST.ToString("#,##0.0");
+                        strT.Text = vTR.ToString("#,##0.0");
+                        showChart(2, vRS, vST, vTR);
                         break;
                 }
 
                 switch(dataApa2)
                 {
                     case "total_kWh":
+                        strTotal.Text = kWhtot.ToString("#,#0.0");
+                        strUnit2.Text = "kWh";
+                        break;
+
+                    case "total_kVARh":
+                        strTotal.Text = KVARtot.ToString("#,#0.0");
+                        strUnit2.Text = "kVARh";
                         break;
 
                 }
+
+                
             }
             catch(Exception ex)
             {
@@ -251,6 +263,40 @@ namespace Interface_KM
                 txtSlave.Enabled = true;
                 txtHost.Enabled = true;
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void showChart(byte selector, double valR, double valS, double valT)
+        {
+            time++;
+            switch(selector)
+            {
+                /* V 1ph */
+                case 1:
+                    chart1.ChartAreas[0].AxisY.Maximum = 250;
+                    chart1.ChartAreas[0].AxisY.Minimum = 190;
+                    
+
+                    if(chart1.Series[0].Points.Count > 10)
+                    {
+                        
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 50 + time;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(valS);
+                    chart1.Series[2].Points.AddY(valT);
+                    break;
+
+                /* V 3ph */
+                case 2:
+                    chart1.ChartAreas[0].AxisY.Maximum = 410;
+                    chart1.ChartAreas[0].AxisY.Minimum = 350;
+
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(valS);
+                    chart1.Series[2].Points.AddY(valT);
+                    break;
             }
         }
 
