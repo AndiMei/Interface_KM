@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.IO;
 
 namespace Interface_KM
 {
@@ -25,6 +26,7 @@ namespace Interface_KM
         bool ambilData;
         string dataApa, dataApa2;
         uint time;
+        bool clrChart = false;
 
         /* Global variable data */
         double vR, vS, vT;
@@ -34,7 +36,6 @@ namespace Interface_KM
         double PF;
         double Ptot, Qtot;
         double kWhtot, KVARtot;
-        string rangeData;
 
         public Form1()
         {
@@ -45,6 +46,7 @@ namespace Interface_KM
         {
             button1.Text = "Connect";
             dataApa = "current";
+            dataApa2 = "total_kWh";
             strUnit.Text = "A";
             str_RR.Visible = true;
             str_SS.Visible = true;
@@ -55,6 +57,10 @@ namespace Interface_KM
             strR.Visible = true;
             strS.Visible = true;
             strT.Visible = true;
+            timer3.Start();
+            radioButton2.Checked = true;
+            btn_I.Enabled = false;
+            clearChart();
         }
 
         public void connect(string IP, int Port)
@@ -132,9 +138,11 @@ namespace Interface_KM
                 try
                 {
                     button1.Text = "Disconnect";
+                    button1.BackColor = Color.Green;
                     connect(txtHost.Text, 502); // connect to device.
                     timer1.Start();
                     timer2.Start();
+                    timer4.Start();
                     txtAddr.Text = txtSlave.Value.ToString("00");
                     ambilData = true;
                     txtSlave.Enabled = false;
@@ -145,8 +153,12 @@ namespace Interface_KM
                 {
                     btnState = false;
                     button1.Text = "Connect";
+                    button1.BackColor = Color.Red;
                     txtSlave.Enabled = true;
                     txtHost.Enabled = true;
+                    timer1.Stop();
+                    timer2.Stop();
+                    timer4.Stop();
                     MessageBox.Show(er.Message);
                 }
             }
@@ -154,11 +166,15 @@ namespace Interface_KM
             else
             {
                 button1.Text = "Connect";
+                button1.BackColor = Color.Red;
                 ambilData = false;
                 btnState = false;
                 button1.Text = "Connect";
                 txtSlave.Enabled = true;
                 txtHost.Enabled = true;
+                timer1.Stop();
+                timer2.Stop();
+                timer4.Stop();
             }
         }
 
@@ -166,6 +182,26 @@ namespace Interface_KM
         {
             if (ambilData)
                 GetData();
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            showChart(dataApa, Convert.ToDouble(strR.Text), Convert.ToDouble(strS.Text), Convert.ToDouble(strT.Text));
+        }
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            Jam.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.ToString("hh:mm:ss");
+            string date = DateTime.Now.ToString("ddMMyyyy");
+
+            string headerTeks = "Time,cR,cS,CT,vR,vS,vT,vRS,vST,vTR,freq,PF,pTot,qTot,kWhtot\n";
+            string logTeks = time + "," + cR.ToString("#,##0.00") + "," + cS.ToString("#,##0.00") + "," + cT.ToString("#,##0.00") + "," + vR.ToString("#,##0.0") + "," + vS.ToString("#,##0.0") + "," + vT.ToString("#,##0.0") + "," + vRS.ToString("#,##0.0") + "," + vST.ToString("#,##0.0") + "," + vTR.ToString("#,##0.0") + "," + freq.ToString("#,##0.00") + "," + PF.ToString("#,##0.00") + "," + Ptot.ToString("#,##0.000") + "," + Qtot.ToString("#,##0.000") + "," + kWhtot.ToString("#,#0.0") + Environment.NewLine;
+            string namaFile = date;
+
+            writeCSV(namaFile, logTeks, headerTeks);
         }
 
         private void GetData()
@@ -209,7 +245,7 @@ namespace Interface_KM
                     case "current":
                         strR.Text = cR.ToString("#,##0.00");
                         strS.Text = cS.ToString("#,##0.00");
-                        strT.Text = cT.ToString("#,##0.0");
+                        strT.Text = cT.ToString("#,##0.00");
                         break;
 
                     case "powerFactor":
@@ -224,12 +260,14 @@ namespace Interface_KM
                         strR.Text = Ptot.ToString("#,##0.000");
                         strTotal.Text =kWhtot.ToString("#,#0.0");
                         strUnit2.Text = "kWh";
+                        dataApa2 = "total_kWh";
                         break;
 
                     case "reactivePower":
                         strR.Text = Qtot.ToString("#,##0.000");
                         strTotal.Text = KVARtot.ToString("#,#0.0");
                         strUnit2.Text = "kVARh";
+                        dataApa2 = "total_kVARh";
                         break;
 
                     case "voltage_3ph":
@@ -272,6 +310,15 @@ namespace Interface_KM
             switch (selector)
             {
                 case "voltage_1ph":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    };
+
+                    chart1.Series[0].LegendText = "R";
+                    chart1.Series[1].LegendText = "S";
+                    chart1.Series[2].LegendText = "T";
                     /* auto scale X axis */
                     if ((valR > max) || (valS > max) || (valT > max))
                         max = ((valR + valS + valT) / 3) + 10;
@@ -296,6 +343,14 @@ namespace Interface_KM
                     break;
 
                 case "current":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
+                    chart1.Series[0].LegendText = "R";
+                    chart1.Series[1].LegendText = "S";
+                    chart1.Series[2].LegendText = "T";
                     /* auto scale X axis */
                     if ((valR > max) || (valS > max) || (valT > max))
                         max = ((valR + valS + valT) / 3) + 10;
@@ -309,7 +364,7 @@ namespace Interface_KM
                     if (chart1.Series[0].Points.Count > 10)
                     {
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
@@ -318,14 +373,21 @@ namespace Interface_KM
                     break;
 
                 case "powerFactor":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
                     /* auto scale X axis */
-
+                    chart1.Series[0].LegendText = "PF";
+                    chart1.Series[1].LegendText = "0";
+                    chart1.Series[2].LegendText = "0";
                     chart1.ChartAreas[0].AxisY.Maximum = 1;
                     chart1.ChartAreas[0].AxisY.Minimum = 0;
                     if (chart1.Series[0].Points.Count > 10)
                     {
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
@@ -334,6 +396,14 @@ namespace Interface_KM
                     break;
 
                 case "frequency":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
+                    chart1.Series[0].LegendText = "Freq";
+                    chart1.Series[1].LegendText = "0";
+                    chart1.Series[2].LegendText = "0";
                     /* auto scale X axis */
                     if (valR > max)
                         max = valR + 5;
@@ -347,7 +417,7 @@ namespace Interface_KM
                     if (chart1.Series[0].Points.Count > 10)
                     {
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
@@ -356,6 +426,14 @@ namespace Interface_KM
                     break;
 
                 case "power":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
+                    chart1.Series[0].LegendText = "P";
+                    chart1.Series[1].LegendText = "0";
+                    chart1.Series[2].LegendText = "0";
                     /* auto scale X axis */
                     if (valR > max)
                         max = valR + 10;
@@ -369,7 +447,7 @@ namespace Interface_KM
                     if (chart1.Series[0].Points.Count > 10)
                     {
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
@@ -378,27 +456,48 @@ namespace Interface_KM
                     break;
 
                 case "reactivePower":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
+                    chart1.Series[0].LegendText = "Q";
+                    chart1.Series[1].LegendText = "0";
+                    chart1.Series[2].LegendText = "0";
                     /* auto scale X axis */
                     if (valR > max)
                         max = valR + 5;
                     if (valR < min)
                         min = valR - 5;
-                    
 
                     chart1.ChartAreas[0].AxisY.Maximum = (int)max;
                     chart1.ChartAreas[0].AxisY.Minimum = (int)min;
                     if (chart1.Series[0].Points.Count > 10)
                     {
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
                     chart1.Series[1].Points.AddY(0);
                     chart1.Series[2].Points.AddY(0);
+
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
                     break;
 
                 case "voltage_3ph":
+                    if (clrChart)
+                    {
+                        clrChart = false;
+                        clearChart();
+                    }
+                    chart1.Series[0].LegendText = "RS";
+                    chart1.Series[1].LegendText = "ST";
+                    chart1.Series[2].LegendText = "TR";
                     /* auto scale X axis */
                     if ((valR > max) || (valS > max) || (valT > max))
                         max = ((valR + valS + valT) / 3) + 10;
@@ -414,7 +513,7 @@ namespace Interface_KM
                     {
 
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 10 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 8 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
@@ -424,145 +523,205 @@ namespace Interface_KM
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void clearChart()
         {
-            showChart(dataApa, Convert.ToDouble(strR.Text), Convert.ToDouble(strS.Text), Convert.ToDouble(strT.Text));
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            chart1.Series[2].Points.Clear();
+            chart1.ChartAreas[0].AxisX.Maximum = 10;
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            time = 0;
         }
 
-        private void timer3_Tick(object sender, EventArgs e)
+        private void writeCSV(string nama, string teks,string header)
         {
-            Jam.Text = DateTime.Now.ToString("HH:mm:ss");
+            string fileName = nama + ".csv";
+            string dir = Directory.GetCurrentDirectory();
+            string cureFile = @dir + @"\" + fileName;
+            if (!File.Exists(cureFile))//if file doesn't exist
+            {
+                File.Create(cureFile).Close();
+                File.AppendAllText(cureFile, header);
+            }
+            try
+            {
+                File.AppendAllText(cureFile, teks);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString() + Environment.NewLine + "Can't access" + cureFile + Environment.NewLine + "This file maybe used by another application.", "Write File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+       
 
         private void btn_I_Click(object sender, EventArgs e)
         {
             dataApa = "current";
             strUnit.Text = "A";
-
             str_RR.Visible = true;
             str_SS.Visible = true;
             str_TT.Visible = true;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
             strR.Visible = true;
             strS.Visible = true;
             strT.Visible = true;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = false;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = true;
+            btn_q.Enabled = true;
         }
 
         private void btn_1ph_Click(object sender, EventArgs e)
         {
             dataApa = "voltage_1ph";
             strUnit.Text = "V";
-
             str_RR.Visible = true;
             str_SS.Visible = true;
             str_TT.Visible = true;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
             strR.Visible = true;
             strS.Visible = true;
             strT.Visible = true;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = false;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = true;
+            btn_q.Enabled = true;
+
         }
 
         private void btn_3ph_Click(object sender, EventArgs e)
         {
             dataApa = "voltage_3ph";
             strUnit.Text = "V";
-
             str_RR.Visible = true;
             str_SS.Visible = true;
             str_TT.Visible = true;
-
             str_RS.Visible = true;
             str_ST.Visible = true;
             str_TR.Visible = true;
-
             strR.Visible = true;
             strS.Visible = true;
             strT.Visible = true;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = false;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = true;
+            btn_q.Enabled = true;
         }
 
         private void btn_f_Click(object sender, EventArgs e)
         {
             dataApa = "frequency";
             strUnit.Text = "Hz";
-
             str_RR.Visible = false;
             str_SS.Visible = false;
             str_TT.Visible = false;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
-            /*---*/
             strR.Visible = true;
             strS.Visible = false;
             strT.Visible = false;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = false;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = true;
+            btn_q.Enabled = true;
         }
 
         private void btn_pf_Click(object sender, EventArgs e)
         {
             dataApa = "powerFactor";
             strUnit.Text = "PF";
-
             str_RR.Visible = false;
             str_SS.Visible = false;
             str_TT.Visible = false;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
-            /*---*/
             strR.Visible = true;
             strS.Visible = false;
             strT.Visible = false;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = false;
+            btn_p.Enabled = true;
+            btn_q.Enabled = true;
         }
 
         private void btn_p_Click(object sender, EventArgs e)
         {
             dataApa = "power";
             strUnit.Text = "kW";
-
             str_RR.Visible = false;
             str_SS.Visible = false;
             str_TT.Visible = false;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
-            /*---*/
             strR.Visible = true;
             strS.Visible = false;
             strT.Visible = false;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = false;
+            btn_q.Enabled = true;
         }
 
         private void btn_q_Click(object sender, EventArgs e)
         {
             dataApa = "reactivePower";
             strUnit.Text = "kvar";
-            
             str_RR.Visible = false;
             str_SS.Visible = false;
             str_TT.Visible = false;
-
             str_RS.Visible = false;
             str_ST.Visible = false;
             str_TR.Visible = false;
-
-            /*---*/
             strR.Visible = true;
             strS.Visible = false;
             strT.Visible = false;
+            clrChart = true;
+            /* Button */
+            btn_I.Enabled = true;
+            btn_1ph.Enabled = true;
+            btn_3ph.Enabled = true;
+            btn_f.Enabled = true;
+            btn_pf.Enabled = true;
+            btn_p.Enabled = true;
+            btn_q.Enabled = false;
         }
         
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
