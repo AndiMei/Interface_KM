@@ -429,6 +429,11 @@ namespace Interface_KM
             showChart(dataApa, Convert.ToDouble(strR.Text), Convert.ToDouble(strS.Text), Convert.ToDouble(strT.Text));
         }
 
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            Jam.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
         private void btn_I_Click(object sender, EventArgs e)
         {
             dataApa = "current";
@@ -564,17 +569,19 @@ namespace Interface_KM
             if (radioButton1.Checked == true)
             {
                 panel_1.Show();
-                panel_2.Hide();
-            }
-                
+                panel_2.Show();
+                panel_3.Show();
+             }
+
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton2.Checked == true)
             {
-                panel_1.Hide();
+                panel_1.Show();
                 panel_2.Show();
+                panel_3.Hide();
             }
         }
 
