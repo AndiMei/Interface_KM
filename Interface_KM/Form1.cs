@@ -749,27 +749,36 @@ namespace Interface_KM
 
         private void calculate()
         {
-            double a = Convert.ToDouble(Clock);
-            double b = Convert.ToDouble(TimeAwal_LWBP.Text);
-            double c = Convert.ToDouble(TimeAkhir_LWBP.Text);
-            double ConvCC_LWBP = Convert.ToDouble(CC_LWBP.Text);
-            double ConvRp_LWBP = Convert.ToDouble(Rp_LWBP.Text);
-            double ConvCC_WBP = Convert.ToDouble(CC_WBP.Text);
-            double ConvRp_WBP = Convert.ToDouble(Rp_WBP.Text);
-            if (a <= c && a >= b)
+            try
             {
-                CC_LWBP.Text = kWhtot.ToString("#,##0.0");
+                double a = Convert.ToDouble(Clock);
+                double b = Convert.ToDouble(TimeAwal_LWBP.Text);
+                double c = Convert.ToDouble(TimeAkhir_LWBP.Text);
+                double ConvCC_LWBP = Convert.ToDouble(CC_LWBP.Text);
+                double ConvRp_LWBP = Convert.ToDouble(Rp_LWBP.Text);
+                double ConvCC_WBP = Convert.ToDouble(CC_WBP.Text);
+                double ConvRp_WBP = Convert.ToDouble(Rp_WBP.Text);
+                if (a <= c && a >= b)
+                {
+                    CC_LWBP.Text = kWhtot.ToString("#,##0.0");
+
+                }
+                else CC_WBP.Text = kWhtot.ToString("#,##0.0");
+
+                double lwbpTot = ConvRp_LWBP * ConvCC_LWBP;
+                LWBP_Duwek.Text = "Rp. " + lwbpTot.ToString("#,##0.00");
+                double wbpTot = ConvRp_WBP * ConvCC_WBP;
+                WBP_Duwek.Text = "Rp. " + wbpTot.ToString("#,##0.00");
+
+                double duwektotal = lwbpTot + wbpTot;
+                Total_Duwek.Text = "Rp. " + duwektotal.ToString("#,##0.00");
+            }
+            catch(Exception er)
+            {
+                //MessageBox.Show("Isien seng genah cok");
 
             }
-            else CC_WBP.Text = kWhtot.ToString("#,##0.0");
-
-            double lwbpTot = ConvRp_LWBP * ConvCC_LWBP;
-            LWBP_Duwek.Text = lwbpTot.ToString("#,##0");
-            double wbpTot = ConvRp_WBP * ConvCC_WBP;
-            WBP_Duwek.Text = wbpTot.ToString("#,##0");
-
-            double duwektotal = lwbpTot + wbpTot;
-            Total_Duwek.Text = Convert.ToString(duwektotal);
+            
         }
         /* wekke apsa */
 
