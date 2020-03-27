@@ -209,6 +209,7 @@ namespace Interface_KM
                     case "current":
                         strR.Text = cR.ToString("#,##0.00");
                         strS.Text = cS.ToString("#,##0.00");
+                        strT.Text = cT.ToString("#,##0.0");
                         break;
 
                     case "powerFactor":
@@ -270,19 +271,17 @@ namespace Interface_KM
             double max = 0, min = 65535;
             switch (selector)
             {
-                /* V 1ph */
                 case "voltage_1ph":
                     /* auto scale X axis */
                     if ((valR > max) || (valS > max) || (valT > max))
                         max = ((valR + valS + valT) / 3) + 10;
                     if ((valR < min) || (valS < min) || (valT < min))
                         min = ((valR + valS + valT) / 3) - 10;
-                    if (min < 0)
+                    if (min < 1)
                         min = 0;
 
                     chart1.ChartAreas[0].AxisY.Maximum = (int) max;
                     chart1.ChartAreas[0].AxisY.Minimum = (int) min;
-                    
 
                     if(chart1.Series[0].Points.Count > 10)
                     {
@@ -296,23 +295,126 @@ namespace Interface_KM
                     chart1.Series[2].Points.AddY(valT);
                     break;
 
-                /* V 3ph */
                 case "current":
                     /* auto scale X axis */
                     if ((valR > max) || (valS > max) || (valT > max))
                         max = ((valR + valS + valT) / 3) + 10;
                     if ((valR < min) || (valS < min) || (valT < min))
                         min = ((valR + valS + valT) / 3) - 10;
-                    if (min < 0)
+                    if (min < 1)
                         min = 0;
 
                     chart1.ChartAreas[0].AxisY.Maximum = (int) max;
                     chart1.ChartAreas[0].AxisY.Minimum = (int) min;
                     if (chart1.Series[0].Points.Count > 10)
                     {
-
                         chart1.ChartAreas[0].AxisX.Minimum = time;
                         chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(valS);
+                    chart1.Series[2].Points.AddY(valT);
+                    break;
+
+                case "powerFactor":
+                    /* auto scale X axis */
+
+                    chart1.ChartAreas[0].AxisY.Maximum = 1;
+                    chart1.ChartAreas[0].AxisY.Minimum = 0;
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(0);
+                    chart1.Series[2].Points.AddY(0);
+                    break;
+
+                case "frequency":
+                    /* auto scale X axis */
+                    if (valR > max)
+                        max = valR + 5;
+                    if (valR < min)
+                        min = valR - 5;
+                    if (min < 1)
+                        min = 0;
+
+                    chart1.ChartAreas[0].AxisY.Maximum = (int) max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int) min; 
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(0);
+                    chart1.Series[2].Points.AddY(0);
+                    break;
+
+                case "power":
+                    /* auto scale X axis */
+                    if (valR > max)
+                        max = valR + 10;
+                    if (valR < min)
+                        min = valR - 10;
+                    if (min < 1)
+                        min = 0;
+
+                    chart1.ChartAreas[0].AxisY.Maximum = (int)max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int)min;
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(0);
+                    chart1.Series[2].Points.AddY(0);
+                    break;
+
+                case "reactivePower":
+                    /* auto scale X axis */
+                    if (valR > max)
+                        max = valR + 5;
+                    if (valR < min)
+                        min = valR - 5;
+                    
+
+                    chart1.ChartAreas[0].AxisY.Maximum = (int)max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int)min;
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
+                    chart1.Series[0].Points.AddY(valR);
+                    chart1.Series[1].Points.AddY(0);
+                    chart1.Series[2].Points.AddY(0);
+                    break;
+
+                case "voltage_3ph":
+                    /* auto scale X axis */
+                    if ((valR > max) || (valS > max) || (valT > max))
+                        max = ((valR + valS + valT) / 3) + 10;
+                    if ((valR < min) || (valS < min) || (valT < min))
+                        min = ((valR + valS + valT) / 3) - 10;
+                    if (min < 1)
+                        min = 0;
+
+                    chart1.ChartAreas[0].AxisY.Maximum = (int)max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int)min;
+
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 10 + time;
                         time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
