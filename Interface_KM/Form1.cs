@@ -24,7 +24,7 @@ namespace Interface_KM
         bool btnState;
         bool ambilData;
         string dataApa, dataApa2;
-        int time;
+        uint time;
 
         /* Global variable data */
         double vR, vS, vT;
@@ -34,6 +34,8 @@ namespace Interface_KM
         double PF;
         double Ptot, Qtot;
         double kWhtot, KVARtot;
+        double graphR, graphS, graphT;
+        string rangeData;
 
         public Form1()
         {
@@ -133,6 +135,7 @@ namespace Interface_KM
                     button1.Text = "Disconnect";
                     connect(txtHost.Text, 502); // connect to device.
                     timer1.Start();
+                    timer2.Start();
                     txtAddr.Text = txtSlave.Value.ToString("00");
                     ambilData = true;
                     txtSlave.Enabled = false;
@@ -199,16 +202,23 @@ namespace Interface_KM
                 switch (dataApa)
                 {
                     case "voltage_1ph":
+                        /* show to table */
                         strR.Text = vR.ToString("#,##0.0");
                         strS.Text = vS.ToString("#,##0.0");
                         strT.Text = vT.ToString("#,##0.0");
-                        showChart(1, vR, vS, vT);
+
+                        /* send to graph */
+                        rangeData = "voltage_1ph";
+                        
                         break;
 
                     case "current":
                         strR.Text = cR.ToString("#,##0.00");
                         strS.Text = cS.ToString("#,##0.00");
                         strT.Text = cT.ToString("#,##0.00");
+
+                        /* send to graph */
+                        rangeData = "current";
                         break;
 
                     case "powerFactor":
@@ -235,7 +245,6 @@ namespace Interface_KM
                         strR.Text = vRS.ToString("#,##0.0");
                         strS.Text = vST.ToString("#,##0.0");
                         strT.Text = vTR.ToString("#,##0.0");
-                        showChart(2, vRS, vST, vTR);
                         break;
                 }
 
@@ -266,22 +275,37 @@ namespace Interface_KM
             }
         }
 
-        private void showChart(byte selector, double valR, double valS, double valT)
+        private void showChart(string selector, double valR, double valS, double valT)
         {
-            time++;
-            switch(selector)
+            double max = 0, min = 65535;
+            switch (selector)
             {
                 /* V 1ph */
-                case 1:
-                    chart1.ChartAreas[0].AxisY.Maximum = 250;
-                    chart1.ChartAreas[0].AxisY.Minimum = 190;
+                case "voltage_1ph":
+                    if (valR > max)
+                        max = valR + 20;
+                    else if (valS > max)
+                        max = valS + 20;
+                    else if (valT > max)
+                        max = valT + 20;
+
+                    if (valR < min)
+                        min = valR - 20;
+                    else if (valS < min)
+                        min = valS + 20;
+                    else if (valT < min)
+                        min = valT + 20;
+
+                    chart1.ChartAreas[0].AxisY.Maximum = (int) max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int) min;
                     
 
                     if(chart1.Series[0].Points.Count > 10)
                     {
                         
                         chart1.ChartAreas[0].AxisX.Minimum = time;
-                        chart1.ChartAreas[0].AxisX.Maximum = 50 + time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 10 + time;
+                        time++;
                     }
                     chart1.Series[0].Points.AddY(valR);
                     chart1.Series[1].Points.AddY(valS);
@@ -289,15 +313,33 @@ namespace Interface_KM
                     break;
 
                 /* V 3ph */
-                case 2:
-                    chart1.ChartAreas[0].AxisY.Maximum = 410;
-                    chart1.ChartAreas[0].AxisY.Minimum = 350;
+                case "current":
+                    if ((valR > max) || (valS > max) || (valT > max))
+                        max = ((valR + valS + valT) / 3) + 10;
+                    if ((valR < min) || (valS < min) || (valT < min))
+                        min = ((valR + valS + valT) / 3) - 10;
+                    if (min < 0)
+                        min = 0;
 
+                    chart1.ChartAreas[0].AxisY.Maximum = (int) max;
+                    chart1.ChartAreas[0].AxisY.Minimum = (int) min;
+                    if (chart1.Series[0].Points.Count > 10)
+                    {
+
+                        chart1.ChartAreas[0].AxisX.Minimum = time;
+                        chart1.ChartAreas[0].AxisX.Maximum = 9 + time;
+                        time++;
+                    }
                     chart1.Series[0].Points.AddY(valR);
                     chart1.Series[1].Points.AddY(valS);
                     chart1.Series[2].Points.AddY(valT);
                     break;
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            showChart(rangeData, Convert.ToDouble(strR.Text), Convert.ToDouble(strS.Text), Convert.ToDouble(strT.Text));
         }
 
         private void btn_I_Click(object sender, EventArgs e)
