@@ -614,7 +614,7 @@ namespace Interface_KM
             double duwektotal = lwbpTot + wbpTot;
             Total_Duwek.Text = Convert.ToString(duwektotal);
         }
-
+        /* wekke apsa */
 
 
 
