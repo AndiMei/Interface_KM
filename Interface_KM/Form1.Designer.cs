@@ -70,6 +70,7 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_q)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_p)).BeginInit();
@@ -487,6 +488,7 @@
             // 
             this.panel_2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_2.BackgroundImage")));
             this.panel_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_2.Controls.Add(this.panel1);
             this.panel_2.Controls.Add(this.chart1);
             this.panel_2.Location = new System.Drawing.Point(443, 0);
             this.panel_2.Name = "panel_2";
@@ -536,6 +538,15 @@
             // 
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(12, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(568, 391);
+            this.panel1.TabIndex = 49;
             // 
             // Form1
             // 
@@ -603,6 +614,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
