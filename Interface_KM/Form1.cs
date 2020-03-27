@@ -434,6 +434,7 @@ namespace Interface_KM
             Jam.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+
         private void btn_I_Click(object sender, EventArgs e)
         {
             dataApa = "current";
