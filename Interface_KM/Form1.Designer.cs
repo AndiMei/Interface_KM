@@ -69,23 +69,23 @@
             this.panel_2 = new System.Windows.Forms.Panel();
             this.panel_3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.Total_Duwek = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.WBP_Duwek = new System.Windows.Forms.Label();
+            this.LWBP_Duwek = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.CC_WBP = new System.Windows.Forms.Label();
+            this.CC_LWBP = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.Rp_LWBP = new System.Windows.Forms.TextBox();
+            this.Rp_WBP = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -93,12 +93,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TimeAwal_LWBP = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.WBPJam_Akhir = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TimeAkhir_LWBP = new System.Windows.Forms.TextBox();
             this.Jam = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -547,7 +547,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.Total_Duwek);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label21);
@@ -561,17 +561,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TOTAL PRICE";
             // 
-            // label24
+            // Total_Duwek
             // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label24.Location = new System.Drawing.Point(205, 32);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(59, 20);
-            this.label24.TabIndex = 48;
-            this.label24.Text = "99999";
+            this.Total_Duwek.AutoSize = true;
+            this.Total_Duwek.BackColor = System.Drawing.Color.Transparent;
+            this.Total_Duwek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Total_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Total_Duwek.Location = new System.Drawing.Point(205, 32);
+            this.Total_Duwek.Name = "Total_Duwek";
+            this.Total_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.Total_Duwek.TabIndex = 48;
+            this.Total_Duwek.Text = "99999";
             // 
             // label23
             // 
@@ -625,23 +625,23 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.WBP_Duwek);
+            this.groupBox2.Controls.Add(this.LWBP_Duwek);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.CC_WBP);
+            this.groupBox2.Controls.Add(this.CC_LWBP);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.Rp_LWBP);
+            this.groupBox2.Controls.Add(this.Rp_WBP);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(27, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(382, 114);
+            this.groupBox2.Size = new System.Drawing.Size(492, 114);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "COUNTER CALCULATION";
@@ -658,29 +658,29 @@
             this.label19.TabIndex = 43;
             this.label19.Text = "Rupiah";
             // 
-            // label18
+            // WBP_Duwek
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(296, 64);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(59, 20);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "99999";
+            this.WBP_Duwek.AutoSize = true;
+            this.WBP_Duwek.BackColor = System.Drawing.Color.Transparent;
+            this.WBP_Duwek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WBP_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.WBP_Duwek.Location = new System.Drawing.Point(323, 65);
+            this.WBP_Duwek.Name = "WBP_Duwek";
+            this.WBP_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.WBP_Duwek.TabIndex = 47;
+            this.WBP_Duwek.Text = "99999";
             // 
-            // label17
+            // LWBP_Duwek
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.Location = new System.Drawing.Point(296, 37);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(59, 20);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "99999";
+            this.LWBP_Duwek.AutoSize = true;
+            this.LWBP_Duwek.BackColor = System.Drawing.Color.Transparent;
+            this.LWBP_Duwek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWBP_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LWBP_Duwek.Location = new System.Drawing.Point(323, 36);
+            this.LWBP_Duwek.Name = "LWBP_Duwek";
+            this.LWBP_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.LWBP_Duwek.TabIndex = 46;
+            this.LWBP_Duwek.Text = "99999";
             // 
             // label16
             // 
@@ -688,7 +688,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(271, 64);
+            this.label16.Location = new System.Drawing.Point(301, 65);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(19, 20);
             this.label16.TabIndex = 45;
@@ -700,35 +700,35 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(271, 38);
+            this.label15.Location = new System.Drawing.Point(301, 40);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(19, 20);
             this.label15.TabIndex = 44;
             this.label15.Text = "=";
             // 
-            // label14
+            // CC_WBP
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(206, 65);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 20);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "99999";
+            this.CC_WBP.AutoSize = true;
+            this.CC_WBP.BackColor = System.Drawing.Color.Transparent;
+            this.CC_WBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CC_WBP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CC_WBP.Location = new System.Drawing.Point(206, 65);
+            this.CC_WBP.Name = "CC_WBP";
+            this.CC_WBP.Size = new System.Drawing.Size(69, 20);
+            this.CC_WBP.TabIndex = 43;
+            this.CC_WBP.Text = "999999";
             // 
-            // label13
+            // CC_LWBP
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(206, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 20);
-            this.label13.TabIndex = 42;
-            this.label13.Text = "99999";
+            this.CC_LWBP.AutoSize = true;
+            this.CC_LWBP.BackColor = System.Drawing.Color.Transparent;
+            this.CC_LWBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CC_LWBP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CC_LWBP.Location = new System.Drawing.Point(206, 38);
+            this.CC_LWBP.Name = "CC_LWBP";
+            this.CC_LWBP.Size = new System.Drawing.Size(69, 20);
+            this.CC_LWBP.TabIndex = 42;
+            this.CC_LWBP.Text = "999999";
             // 
             // label7
             // 
@@ -754,19 +754,21 @@
             this.label8.TabIndex = 41;
             this.label8.Text = "WBP    :";
             // 
-            // textBox5
+            // Rp_LWBP
             // 
-            this.textBox5.Location = new System.Drawing.Point(81, 40);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 34;
+            this.Rp_LWBP.Location = new System.Drawing.Point(81, 40);
+            this.Rp_LWBP.Name = "Rp_LWBP";
+            this.Rp_LWBP.Size = new System.Drawing.Size(100, 20);
+            this.Rp_LWBP.TabIndex = 34;
+            this.Rp_LWBP.Text = "0";
             // 
-            // textBox6
+            // Rp_WBP
             // 
-            this.textBox6.Location = new System.Drawing.Point(81, 67);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 35;
+            this.Rp_WBP.Location = new System.Drawing.Point(81, 67);
+            this.Rp_WBP.Name = "Rp_WBP";
+            this.Rp_WBP.Size = new System.Drawing.Size(100, 20);
+            this.Rp_WBP.TabIndex = 35;
+            this.Rp_WBP.Text = "0";
             // 
             // label9
             // 
@@ -799,12 +801,12 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TimeAwal_LWBP);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.WBPJam_Akhir);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.TimeAkhir_LWBP);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(27, 51);
@@ -862,12 +864,13 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "WBP    :";
             // 
-            // textBox1
+            // TimeAwal_LWBP
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 34;
+            this.TimeAwal_LWBP.Location = new System.Drawing.Point(81, 40);
+            this.TimeAwal_LWBP.Name = "TimeAwal_LWBP";
+            this.TimeAwal_LWBP.Size = new System.Drawing.Size(100, 20);
+            this.TimeAwal_LWBP.TabIndex = 34;
+            this.TimeAwal_LWBP.Text = "0000";
             // 
             // textBox2
             // 
@@ -888,12 +891,12 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "-";
             // 
-            // textBox3
+            // WBPJam_Akhir
             // 
-            this.textBox3.Location = new System.Drawing.Point(210, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 36;
+            this.WBPJam_Akhir.Location = new System.Drawing.Point(210, 66);
+            this.WBPJam_Akhir.Name = "WBPJam_Akhir";
+            this.WBPJam_Akhir.Size = new System.Drawing.Size(100, 20);
+            this.WBPJam_Akhir.TabIndex = 36;
             // 
             // label3
             // 
@@ -907,12 +910,13 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "-";
             // 
-            // textBox4
+            // TimeAkhir_LWBP
             // 
-            this.textBox4.Location = new System.Drawing.Point(210, 38);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 37;
+            this.TimeAkhir_LWBP.Location = new System.Drawing.Point(210, 38);
+            this.TimeAkhir_LWBP.Name = "TimeAkhir_LWBP";
+            this.TimeAkhir_LWBP.Size = new System.Drawing.Size(100, 20);
+            this.TimeAkhir_LWBP.TabIndex = 37;
+            this.TimeAkhir_LWBP.Text = "1800";
             // 
             // Jam
             // 
@@ -1052,28 +1056,28 @@
         private System.Windows.Forms.Panel panel_3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TimeAkhir_LWBP;
+        private System.Windows.Forms.TextBox WBPJam_Akhir;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label Jam;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label Total_Duwek;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label WBP_Duwek;
+        private System.Windows.Forms.Label LWBP_Duwek;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label CC_WBP;
+        private System.Windows.Forms.Label CC_LWBP;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Rp_LWBP;
+        private System.Windows.Forms.TextBox Rp_WBP;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1081,7 +1085,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TimeAwal_LWBP;
     }
 }
 
