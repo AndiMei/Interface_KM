@@ -752,8 +752,8 @@ namespace Interface_KM
             try
             {
                 double a = Convert.ToDouble(Clock);
-                double b = Convert.ToDouble(TimeAwal_LWBP.Text);
-                double c = Convert.ToDouble(TimeAkhir_LWBP.Text);
+                double b = Convert.ToDouble(lwbp_jjAwal.Value.ToString() + lwbp_mmAwal.Value.ToString());
+                double c = Convert.ToDouble(lwbp_jjAkhir.Value.ToString() + lwbp_mmAkhir.Value.ToString());
                 double ConvCC_LWBP = Convert.ToDouble(CC_LWBP.Text);
                 double ConvRp_LWBP = Convert.ToDouble(Rp_LWBP.Text);
                 double ConvCC_WBP = Convert.ToDouble(CC_WBP.Text);
@@ -775,7 +775,7 @@ namespace Interface_KM
             }
             catch(Exception er)
             {
-                //MessageBox.Show("Isien seng genah cok");
+                
 
             }
             

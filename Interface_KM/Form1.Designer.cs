@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel_1 = new System.Windows.Forms.Panel();
             this.btn_q = new System.Windows.Forms.PictureBox();
             this.btn_p = new System.Windows.Forms.PictureBox();
@@ -93,18 +93,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.TimeAwal_LWBP = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.WBPJam_Akhir = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TimeAkhir_LWBP = new System.Windows.Forms.TextBox();
             this.Jam = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.lwbp_jjAwal = new System.Windows.Forms.NumericUpDown();
+            this.lwbp_mmAwal = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.wbp_mmAwal = new System.Windows.Forms.NumericUpDown();
+            this.wbp_jjAwal = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.wbp_mmAkhir = new System.Windows.Forms.NumericUpDown();
+            this.wbp_jjAkhir = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lwbp_mmAkhir = new System.Windows.Forms.NumericUpDown();
+            this.lwbp_jjAkhir = new System.Windows.Forms.NumericUpDown();
             this.panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_q)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_p)).BeginInit();
@@ -121,6 +129,14 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_jjAwal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_mmAwal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_mmAwal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_jjAwal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_mmAkhir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_jjAkhir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_mmAkhir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_jjAkhir)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_1
@@ -427,7 +443,7 @@
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton2.ForeColor = System.Drawing.SystemColors.Control;
-            this.radioButton2.Location = new System.Drawing.Point(308, 46);
+            this.radioButton2.Location = new System.Drawing.Point(308, 24);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(64, 22);
             this.radioButton2.TabIndex = 8;
@@ -442,7 +458,7 @@
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.radioButton1.Location = new System.Drawing.Point(308, 25);
+            this.radioButton1.Location = new System.Drawing.Point(308, 48);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(96, 22);
             this.radioButton1.TabIndex = 7;
@@ -799,21 +815,29 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.wbp_mmAkhir);
+            this.groupBox1.Controls.Add(this.wbp_jjAkhir);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.lwbp_mmAkhir);
+            this.groupBox1.Controls.Add(this.lwbp_jjAkhir);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.wbp_mmAwal);
+            this.groupBox1.Controls.Add(this.wbp_jjAwal);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lwbp_mmAwal);
+            this.groupBox1.Controls.Add(this.lwbp_jjAwal);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.TimeAwal_LWBP);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.WBPJam_Akhir);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.TimeAkhir_LWBP);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(27, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 114);
+            this.groupBox1.Size = new System.Drawing.Size(518, 114);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TIME";
@@ -824,7 +848,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(222, 16);
+            this.label12.Location = new System.Drawing.Point(261, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 19);
             this.label12.TabIndex = 42;
@@ -866,39 +890,17 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "WBP    :";
             // 
-            // TimeAwal_LWBP
-            // 
-            this.TimeAwal_LWBP.Location = new System.Drawing.Point(81, 40);
-            this.TimeAwal_LWBP.Name = "TimeAwal_LWBP";
-            this.TimeAwal_LWBP.Size = new System.Drawing.Size(100, 20);
-            this.TimeAwal_LWBP.TabIndex = 34;
-            this.TimeAwal_LWBP.Text = "0000";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(81, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 35;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(187, 36);
+            this.label4.Location = new System.Drawing.Point(208, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 24);
             this.label4.TabIndex = 39;
             this.label4.Text = "-";
-            // 
-            // WBPJam_Akhir
-            // 
-            this.WBPJam_Akhir.Location = new System.Drawing.Point(210, 66);
-            this.WBPJam_Akhir.Name = "WBPJam_Akhir";
-            this.WBPJam_Akhir.Size = new System.Drawing.Size(100, 20);
-            this.WBPJam_Akhir.TabIndex = 36;
             // 
             // label3
             // 
@@ -906,19 +908,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(187, 61);
+            this.label3.Location = new System.Drawing.Point(208, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 24);
             this.label3.TabIndex = 38;
             this.label3.Text = "-";
-            // 
-            // TimeAkhir_LWBP
-            // 
-            this.TimeAkhir_LWBP.Location = new System.Drawing.Point(210, 38);
-            this.TimeAkhir_LWBP.Name = "TimeAkhir_LWBP";
-            this.TimeAkhir_LWBP.Size = new System.Drawing.Size(100, 20);
-            this.TimeAkhir_LWBP.TabIndex = 37;
-            this.TimeAkhir_LWBP.Text = "2000";
             // 
             // Jam
             // 
@@ -935,38 +929,38 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.DimGray;
-            chartArea7.BackColor = System.Drawing.Color.DimGray;
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.BackColor = System.Drawing.Color.Transparent;
-            legend7.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-            legend7.Name = "Legend1";
-            legend7.Position.Auto = false;
-            legend7.Position.Height = 7F;
-            legend7.Position.Width = 29.98066F;
-            legend7.Position.X = 3F;
-            legend7.Position.Y = 93F;
-            this.chart1.Legends.Add(legend7);
+            chartArea5.BackColor = System.Drawing.Color.DimGray;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.BackColor = System.Drawing.Color.Transparent;
+            legend5.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
+            legend5.Name = "Legend1";
+            legend5.Position.Auto = false;
+            legend5.Position.Height = 7F;
+            legend5.Position.Width = 29.98066F;
+            legend5.Position.X = 3F;
+            legend5.Position.Y = 93F;
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(27, 25);
             this.chart1.Name = "chart1";
-            series19.BorderWidth = 3;
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series19.Legend = "Legend1";
-            series19.Name = "R";
-            series20.BorderWidth = 3;
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series20.Legend = "Legend1";
-            series20.Name = "S";
-            series21.BorderWidth = 3;
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series21.Legend = "Legend1";
-            series21.Name = "T";
-            this.chart1.Series.Add(series19);
-            this.chart1.Series.Add(series20);
-            this.chart1.Series.Add(series21);
+            series13.BorderWidth = 3;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "R";
+            series14.BorderWidth = 3;
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Legend = "Legend1";
+            series14.Name = "S";
+            series15.BorderWidth = 3;
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Legend = "Legend1";
+            series15.Name = "T";
+            this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
+            this.chart1.Series.Add(series15);
             this.chart1.Size = new System.Drawing.Size(518, 342);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -986,16 +980,164 @@
             this.timer4.Interval = 1000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
+            // lwbp_jjAwal
+            // 
+            this.lwbp_jjAwal.Location = new System.Drawing.Point(79, 43);
+            this.lwbp_jjAwal.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.lwbp_jjAwal.Name = "lwbp_jjAwal";
+            this.lwbp_jjAwal.Size = new System.Drawing.Size(41, 20);
+            this.lwbp_jjAwal.TabIndex = 9;
+            // 
+            // lwbp_mmAwal
+            // 
+            this.lwbp_mmAwal.Location = new System.Drawing.Point(148, 43);
+            this.lwbp_mmAwal.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.lwbp_mmAwal.Name = "lwbp_mmAwal";
+            this.lwbp_mmAwal.Size = new System.Drawing.Size(41, 20);
+            this.lwbp_mmAwal.TabIndex = 43;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(126, 40);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(16, 24);
+            this.label13.TabIndex = 44;
+            this.label13.Text = ":";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(126, 67);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(16, 24);
+            this.label14.TabIndex = 47;
+            this.label14.Text = ":";
+            // 
+            // wbp_mmAwal
+            // 
+            this.wbp_mmAwal.Location = new System.Drawing.Point(148, 70);
+            this.wbp_mmAwal.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.wbp_mmAwal.Name = "wbp_mmAwal";
+            this.wbp_mmAwal.Size = new System.Drawing.Size(41, 20);
+            this.wbp_mmAwal.TabIndex = 46;
+            // 
+            // wbp_jjAwal
+            // 
+            this.wbp_jjAwal.Location = new System.Drawing.Point(79, 70);
+            this.wbp_jjAwal.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.wbp_jjAwal.Name = "wbp_jjAwal";
+            this.wbp_jjAwal.Size = new System.Drawing.Size(41, 20);
+            this.wbp_jjAwal.TabIndex = 45;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(290, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(16, 24);
+            this.label17.TabIndex = 53;
+            this.label17.Text = ":";
+            // 
+            // wbp_mmAkhir
+            // 
+            this.wbp_mmAkhir.Location = new System.Drawing.Point(312, 70);
+            this.wbp_mmAkhir.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.wbp_mmAkhir.Name = "wbp_mmAkhir";
+            this.wbp_mmAkhir.Size = new System.Drawing.Size(41, 20);
+            this.wbp_mmAkhir.TabIndex = 52;
+            // 
+            // wbp_jjAkhir
+            // 
+            this.wbp_jjAkhir.Location = new System.Drawing.Point(243, 70);
+            this.wbp_jjAkhir.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.wbp_jjAkhir.Name = "wbp_jjAkhir";
+            this.wbp_jjAkhir.Size = new System.Drawing.Size(41, 20);
+            this.wbp_jjAkhir.TabIndex = 51;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(290, 40);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(16, 24);
+            this.label18.TabIndex = 50;
+            this.label18.Text = ":";
+            // 
+            // lwbp_mmAkhir
+            // 
+            this.lwbp_mmAkhir.Location = new System.Drawing.Point(312, 43);
+            this.lwbp_mmAkhir.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.lwbp_mmAkhir.Name = "lwbp_mmAkhir";
+            this.lwbp_mmAkhir.Size = new System.Drawing.Size(41, 20);
+            this.lwbp_mmAkhir.TabIndex = 49;
+            // 
+            // lwbp_jjAkhir
+            // 
+            this.lwbp_jjAkhir.Location = new System.Drawing.Point(243, 43);
+            this.lwbp_jjAkhir.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.lwbp_jjAkhir.Name = "lwbp_jjAkhir";
+            this.lwbp_jjAkhir.Size = new System.Drawing.Size(41, 20);
+            this.lwbp_jjAkhir.TabIndex = 48;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1010, 387);
             this.Controls.Add(this.panel_2);
             this.Controls.Add(this.panel_1);
             this.Controls.Add(this.panel_atas);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Power Monitor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_1.ResumeLayout(false);
             this.panel_1.PerformLayout();
@@ -1019,6 +1161,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_jjAwal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_mmAwal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_mmAwal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_jjAwal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_mmAkhir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wbp_jjAkhir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_mmAkhir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lwbp_jjAkhir)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1063,9 +1213,6 @@
         private System.Windows.Forms.Panel panel_3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TimeAkhir_LWBP;
-        private System.Windows.Forms.TextBox WBPJam_Akhir;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label Jam;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label Total_Duwek;
@@ -1092,9 +1239,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TimeAwal_LWBP;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Timer timer5;
+        private System.Windows.Forms.NumericUpDown lwbp_mmAwal;
+        private System.Windows.Forms.NumericUpDown lwbp_jjAwal;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.NumericUpDown wbp_mmAkhir;
+        private System.Windows.Forms.NumericUpDown wbp_jjAkhir;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.NumericUpDown lwbp_mmAkhir;
+        private System.Windows.Forms.NumericUpDown lwbp_jjAkhir;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown wbp_mmAwal;
+        private System.Windows.Forms.NumericUpDown wbp_jjAwal;
+        private System.Windows.Forms.Label label13;
     }
 }
 
