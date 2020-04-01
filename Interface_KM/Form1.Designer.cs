@@ -69,12 +69,15 @@
             this.panel_2 = new System.Windows.Forms.Panel();
             this.panel_3 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.Total_Duwek = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.WBP_Duwek = new System.Windows.Forms.Label();
             this.LWBP_Duwek = new System.Windows.Forms.Label();
@@ -89,16 +92,24 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Mnt_Akhir_WBP = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Mnt_Akhr_LWBP = new System.Windows.Forms.TextBox();
+            this.Mnt_Awl_WBP = new System.Windows.Forms.TextBox();
+            this.Mnt_Awl_LWBP = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.TimeAwal_LWBP = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Time_Awal_LWBP = new System.Windows.Forms.TextBox();
+            this.Time_Awl_WBP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.WBPJam_Akhir = new System.Windows.Forms.TextBox();
+            this.Time_Akhir_WBP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TimeAkhir_LWBP = new System.Windows.Forms.TextBox();
+            this.Time_Akhir_LWBP = new System.Windows.Forms.TextBox();
             this.Jam = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -547,6 +558,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.Total_Duwek);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.label22);
@@ -556,10 +568,22 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(28, 291);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(381, 76);
+            this.groupBox3.Size = new System.Drawing.Size(517, 76);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TOTAL PRICE";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Arial Narrow", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(170, 30);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 22);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Rp.";
             // 
             // Total_Duwek
             // 
@@ -569,9 +593,9 @@
             this.Total_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Total_Duwek.Location = new System.Drawing.Point(205, 32);
             this.Total_Duwek.Name = "Total_Duwek";
-            this.Total_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.Total_Duwek.Size = new System.Drawing.Size(19, 20);
             this.Total_Duwek.TabIndex = 48;
-            this.Total_Duwek.Text = "99999";
+            this.Total_Duwek.Text = "0";
             // 
             // label23
             // 
@@ -624,6 +648,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.WBP_Duwek);
             this.groupBox2.Controls.Add(this.LWBP_Duwek);
@@ -641,10 +667,34 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(27, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(492, 114);
+            this.groupBox2.Size = new System.Drawing.Size(518, 114);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "COUNTER CALCULATION";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(315, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(33, 22);
+            this.label17.TabIndex = 51;
+            this.label17.Text = "Rp.";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(315, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(33, 22);
+            this.label14.TabIndex = 50;
+            this.label14.Text = "Rp.";
             // 
             // label19
             // 
@@ -664,11 +714,11 @@
             this.WBP_Duwek.BackColor = System.Drawing.Color.Transparent;
             this.WBP_Duwek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WBP_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.WBP_Duwek.Location = new System.Drawing.Point(323, 65);
+            this.WBP_Duwek.Location = new System.Drawing.Point(345, 68);
             this.WBP_Duwek.Name = "WBP_Duwek";
-            this.WBP_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.WBP_Duwek.Size = new System.Drawing.Size(19, 20);
             this.WBP_Duwek.TabIndex = 47;
-            this.WBP_Duwek.Text = "99999";
+            this.WBP_Duwek.Text = "0";
             // 
             // LWBP_Duwek
             // 
@@ -676,11 +726,11 @@
             this.LWBP_Duwek.BackColor = System.Drawing.Color.Transparent;
             this.LWBP_Duwek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBP_Duwek.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LWBP_Duwek.Location = new System.Drawing.Point(323, 36);
+            this.LWBP_Duwek.Location = new System.Drawing.Point(345, 39);
             this.LWBP_Duwek.Name = "LWBP_Duwek";
-            this.LWBP_Duwek.Size = new System.Drawing.Size(59, 20);
+            this.LWBP_Duwek.Size = new System.Drawing.Size(19, 20);
             this.LWBP_Duwek.TabIndex = 46;
-            this.LWBP_Duwek.Text = "99999";
+            this.LWBP_Duwek.Text = "0";
             // 
             // label16
             // 
@@ -712,11 +762,11 @@
             this.CC_WBP.BackColor = System.Drawing.Color.Transparent;
             this.CC_WBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CC_WBP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CC_WBP.Location = new System.Drawing.Point(206, 65);
+            this.CC_WBP.Location = new System.Drawing.Point(210, 68);
             this.CC_WBP.Name = "CC_WBP";
-            this.CC_WBP.Size = new System.Drawing.Size(69, 20);
+            this.CC_WBP.Size = new System.Drawing.Size(19, 20);
             this.CC_WBP.TabIndex = 43;
-            this.CC_WBP.Text = "999999";
+            this.CC_WBP.Text = "0";
             // 
             // CC_LWBP
             // 
@@ -724,11 +774,11 @@
             this.CC_LWBP.BackColor = System.Drawing.Color.Transparent;
             this.CC_LWBP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CC_LWBP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CC_LWBP.Location = new System.Drawing.Point(206, 38);
+            this.CC_LWBP.Location = new System.Drawing.Point(210, 39);
             this.CC_LWBP.Name = "CC_LWBP";
-            this.CC_LWBP.Size = new System.Drawing.Size(69, 20);
+            this.CC_LWBP.Size = new System.Drawing.Size(19, 20);
             this.CC_LWBP.TabIndex = 42;
-            this.CC_LWBP.Text = "999999";
+            this.CC_LWBP.Text = "0";
             // 
             // label7
             // 
@@ -797,16 +847,24 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.Mnt_Akhir_WBP);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.Mnt_Akhr_LWBP);
+            this.groupBox1.Controls.Add(this.Mnt_Awl_WBP);
+            this.groupBox1.Controls.Add(this.Mnt_Awl_LWBP);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.TimeAwal_LWBP);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.Time_Awal_LWBP);
+            this.groupBox1.Controls.Add(this.Time_Awl_WBP);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.WBPJam_Akhir);
+            this.groupBox1.Controls.Add(this.Time_Akhir_WBP);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.TimeAkhir_LWBP);
+            this.groupBox1.Controls.Add(this.Time_Akhir_LWBP);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(27, 51);
@@ -815,6 +873,82 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TIME";
+            // 
+            // Mnt_Akhir_WBP
+            // 
+            this.Mnt_Akhir_WBP.Location = new System.Drawing.Point(269, 67);
+            this.Mnt_Akhir_WBP.Name = "Mnt_Akhir_WBP";
+            this.Mnt_Akhir_WBP.Size = new System.Drawing.Size(38, 20);
+            this.Mnt_Akhir_WBP.TabIndex = 54;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(251, 65);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(16, 24);
+            this.label26.TabIndex = 53;
+            this.label26.Text = ".";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label25.Location = new System.Drawing.Point(250, 39);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(16, 24);
+            this.label25.TabIndex = 52;
+            this.label25.Text = ".";
+            // 
+            // Mnt_Akhr_LWBP
+            // 
+            this.Mnt_Akhr_LWBP.Location = new System.Drawing.Point(269, 39);
+            this.Mnt_Akhr_LWBP.Name = "Mnt_Akhr_LWBP";
+            this.Mnt_Akhr_LWBP.Size = new System.Drawing.Size(38, 20);
+            this.Mnt_Akhr_LWBP.TabIndex = 51;
+            // 
+            // Mnt_Awl_WBP
+            // 
+            this.Mnt_Awl_WBP.Location = new System.Drawing.Point(139, 67);
+            this.Mnt_Awl_WBP.Name = "Mnt_Awl_WBP";
+            this.Mnt_Awl_WBP.Size = new System.Drawing.Size(38, 20);
+            this.Mnt_Awl_WBP.TabIndex = 50;
+            // 
+            // Mnt_Awl_LWBP
+            // 
+            this.Mnt_Awl_LWBP.Location = new System.Drawing.Point(140, 40);
+            this.Mnt_Awl_LWBP.Name = "Mnt_Awl_LWBP";
+            this.Mnt_Awl_LWBP.Size = new System.Drawing.Size(38, 20);
+            this.Mnt_Awl_LWBP.TabIndex = 49;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(122, 66);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(16, 24);
+            this.label24.TabIndex = 48;
+            this.label24.Text = ".";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(122, 40);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(16, 24);
+            this.label18.TabIndex = 47;
+            this.label18.Text = ".";
             // 
             // label12
             // 
@@ -864,20 +998,21 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "WBP    :";
             // 
-            // TimeAwal_LWBP
+            // Time_Awal_LWBP
             // 
-            this.TimeAwal_LWBP.Location = new System.Drawing.Point(81, 40);
-            this.TimeAwal_LWBP.Name = "TimeAwal_LWBP";
-            this.TimeAwal_LWBP.Size = new System.Drawing.Size(100, 20);
-            this.TimeAwal_LWBP.TabIndex = 34;
-            this.TimeAwal_LWBP.Text = "0000";
+            this.Time_Awal_LWBP.Location = new System.Drawing.Point(81, 40);
+            this.Time_Awal_LWBP.Name = "Time_Awal_LWBP";
+            this.Time_Awal_LWBP.Size = new System.Drawing.Size(38, 20);
+            this.Time_Awal_LWBP.TabIndex = 34;
+            this.Time_Awal_LWBP.Text = "07";
+            this.Time_Awal_LWBP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // Time_Awl_WBP
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 35;
+            this.Time_Awl_WBP.Location = new System.Drawing.Point(81, 67);
+            this.Time_Awl_WBP.Name = "Time_Awl_WBP";
+            this.Time_Awl_WBP.Size = new System.Drawing.Size(38, 20);
+            this.Time_Awl_WBP.TabIndex = 35;
             // 
             // label4
             // 
@@ -891,12 +1026,12 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "-";
             // 
-            // WBPJam_Akhir
+            // Time_Akhir_WBP
             // 
-            this.WBPJam_Akhir.Location = new System.Drawing.Point(210, 66);
-            this.WBPJam_Akhir.Name = "WBPJam_Akhir";
-            this.WBPJam_Akhir.Size = new System.Drawing.Size(100, 20);
-            this.WBPJam_Akhir.TabIndex = 36;
+            this.Time_Akhir_WBP.Location = new System.Drawing.Point(210, 66);
+            this.Time_Akhir_WBP.Name = "Time_Akhir_WBP";
+            this.Time_Akhir_WBP.Size = new System.Drawing.Size(38, 20);
+            this.Time_Akhir_WBP.TabIndex = 36;
             // 
             // label3
             // 
@@ -910,13 +1045,12 @@
             this.label3.TabIndex = 38;
             this.label3.Text = "-";
             // 
-            // TimeAkhir_LWBP
+            // Time_Akhir_LWBP
             // 
-            this.TimeAkhir_LWBP.Location = new System.Drawing.Point(210, 38);
-            this.TimeAkhir_LWBP.Name = "TimeAkhir_LWBP";
-            this.TimeAkhir_LWBP.Size = new System.Drawing.Size(100, 20);
-            this.TimeAkhir_LWBP.TabIndex = 37;
-            this.TimeAkhir_LWBP.Text = "1800";
+            this.Time_Akhir_LWBP.Location = new System.Drawing.Point(210, 38);
+            this.Time_Akhir_LWBP.Name = "Time_Akhir_LWBP";
+            this.Time_Akhir_LWBP.Size = new System.Drawing.Size(38, 20);
+            this.Time_Akhir_LWBP.TabIndex = 37;
             // 
             // Jam
             // 
@@ -1056,9 +1190,9 @@
         private System.Windows.Forms.Panel panel_3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TimeAkhir_LWBP;
-        private System.Windows.Forms.TextBox WBPJam_Akhir;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Time_Akhir_LWBP;
+        private System.Windows.Forms.TextBox Time_Akhir_WBP;
+        private System.Windows.Forms.TextBox Time_Awl_WBP;
         private System.Windows.Forms.Label Jam;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label Total_Duwek;
@@ -1085,7 +1219,18 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TimeAwal_LWBP;
+        private System.Windows.Forms.TextBox Time_Awal_LWBP;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox Mnt_Akhir_WBP;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox Mnt_Akhr_LWBP;
+        private System.Windows.Forms.TextBox Mnt_Awl_WBP;
+        private System.Windows.Forms.TextBox Mnt_Awl_LWBP;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label18;
     }
 }
 
